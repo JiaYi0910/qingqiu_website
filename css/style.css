@@ -62,9 +62,33 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; letter-spacing
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px; min-height: 60px; flex-wrap: wrap;
 }
-.brand { display: flex; align-items: baseline; gap: 10px; color: var(--ink); }
+.brand { display: flex; align-items: center; gap: 8px; color: var(--ink); }
 .brand:hover { text-decoration: none; }
-.brand-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; letter-spacing: 0.12em; }
+.brand:hover .brand-mark { transform: rotate(-12deg) scale(1.08); }
+.brand-mark { width: 34px; height: 34px; transition: transform 0.3s; }
+.brand-title {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.14em; line-height: 1;
+  position: relative; padding-bottom: 4px;
+}
+/* 「墨染」：墨色，帶一點暈開的影子 */
+.brand-ink { color: #24212b; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 8px rgba(36, 33, 43, 0.18); }
+/* 「櫻雪」：櫻粉漸層 */
+.brand-sakura {
+  background: linear-gradient(120deg, #e48aa5 0%, #b9556f 55%, #e9a3b6 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* 底下一筆淡淡的墨痕 */
+.brand-title::after {
+  content: ""; position: absolute; left: 2px; right: 6px; bottom: -3px; height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, rgba(36, 33, 43, 0.55), rgba(185, 85, 111, 0.45) 60%, rgba(233, 163, 182, 0));
+}
+/* 「青丘地圖」：朱紅色的小印章 */
+.brand-seal {
+  display: inline-grid; grid-template-columns: 1fr; place-items: center; align-content: center; width: 36px; height: 38px; margin-left: 2px;
+  background: #b8433e; color: #fff6ee; border-radius: 4px; transform: rotate(-4deg);
+  font-family: var(--serif); font-size: 0.66rem; font-weight: 700; line-height: 1.2; letter-spacing: 0.08em;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 240, 230, 0.55), 0 1px 3px rgba(120, 30, 30, 0.25);
+}
 .brand-sub { font-size: 0.85rem; color: var(--ink-faint); letter-spacing: 0.2em; }
 .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
 .site-nav a {
@@ -93,8 +117,11 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; letter-spacing
   .site-header { position: static; }
   /* 手機頁首：第一行是站名＋讀到哪裡，第二行是一排可以左右滑的選單 */
   .site-header .wrap { gap: 6px 10px; padding: 8px 0 6px; min-height: 0; }
-  .brand { order: 1; }
+  .brand { order: 1; gap: 6px; }
   .brand-sub { display: none; }
+  .brand-mark { width: 28px; height: 28px; }
+  .brand-title { font-size: 1.3rem; }
+  .brand-seal { width: 31px; height: 33px; font-size: 0.58rem; }
   .progress-btn { order: 2; margin-left: auto; font-size: 0.78rem; padding: 3px 10px 3px 6px; }
   .progress-btn .icon { width: 18px; height: 18px; }
   .site-nav {

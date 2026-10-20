@@ -300,7 +300,7 @@
   // ---------- 瀏覽人數（GoatCounter） ----------
   // 在 goatcounter.com 註冊後，把你的 Code 填在這裡（例如 'qingqiu'），後台是 https://qingqiu.goatcounter.com
   // 不用 cookie、不記個人資料；只在網路上的網站計數，自己電腦上打開不會算。
-  QQ.goatcounter = '';
+  QQ.goatcounter = 'jiayi';
   function setupCounter() {
     if (!QQ.goatcounter || !/github\.io$/.test(location.hostname)) return;
     const s = document.createElement('script');
@@ -339,7 +339,18 @@
     { id: 'merch', label: '周邊', icon: 'hearts', href: 'merch.html' },
   ];
 
+  // 頁首的站名：小櫻花＋「墨染」墨色、「櫻雪」櫻粉＋「青丘地圖」印章（每一頁共用，改這裡就好）
+  function renderBrand() {
+    document.querySelectorAll('.site-header .brand').forEach((b) => {
+      b.innerHTML = `<img class="brand-mark" src="images/icons/sakura.gif" alt="">
+        <span class="brand-title"><span class="brand-ink">墨染</span><span class="brand-sakura">櫻雪</span></span>
+        <span class="brand-seal" aria-label="青丘地圖"><span>青丘</span><span>地圖</span></span>`;
+      b.setAttribute('aria-label', '墨染櫻雪・青丘地圖（回首頁）');
+    });
+  }
+
   function markNav() {
+    renderBrand();
     const page = document.body.dataset.page;
     document.querySelectorAll('.site-nav').forEach((nav) => {
       nav.innerHTML = QQ.pages.map((p) =>
