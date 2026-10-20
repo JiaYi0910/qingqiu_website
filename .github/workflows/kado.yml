@@ -1,0 +1,49 @@
+# KadoKado 每天下午兩點上架新章節。這個排程會去 KadoKado 看有沒有新的一章，
+# 有的話把章節編號補進 js/data/chapters.js 並提交，網站上「去 KadoKado 讀這一章」就會出現。
+# 也可以到 GitHub 的 Actions 分頁，按「Run workflow」馬上跑一次。
+name: KadoKado 章節自動更新
+
+on:
+  schedule:
+    - cron: '20 6 * * *'   # 台灣時間每天 14:20
+    - cron: '20 9 * * *'   # 17:20 再看一次（GitHub 的排程偶爾會晚）
+    - cron: '20 13 * * *'  # 21:20 再看一次
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['tools/update_kado.mjs', '.github/workflows/kado.yml']
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: kado
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 去 KadoKado 看有沒有新章節
+        run: node tools/update_kado.mjs
+      - name: 有新章節就提交
+        run: |
+          if git diff --quiet; then
+            echo "沒有新章節"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/data/chapters.js
+          git commit -F "$RUNNER_TEMP/kado-msg.txt"
+          git push
+          # 請 GitHub Pages 重新發布一次（萬一推上去沒有自動觸發）
+          curl -s -o /dev/null -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds" || true
