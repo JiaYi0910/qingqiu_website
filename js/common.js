@@ -39,10 +39,12 @@
 
   // ---------- 著作權 ----------
   // 每一頁的頁尾、看大圖的視窗都會顯示；插畫本身另外印了浮水印（tools/to_webp.py --mark）
+  // 網站本身（內容、版面設計、程式）也一樣；完整的聲明在專案裡的 LICENSE
   QQ.copyright = {
     holder: '昭昭⋆.˚✮',
     short: '© 2026 昭昭⋆.˚✮《墨染櫻雪》',
-    long: '小說文字、角色、插畫、地圖、表情貼與周邊設計的著作權，皆屬作者昭昭⋆.˚✮所有。未經同意，請勿轉載、複製、修改或商業使用。',
+    site: '© 2026 昭昭⋆.˚✮《墨染櫻雪》青丘地圖・版權所有',
+    long: '本網站的內容、版面設計與程式，以及《墨染櫻雪》的小說文字、角色、插畫、地圖、表情貼與周邊設計，著作權皆屬作者昭昭⋆.˚✮所有。未經同意，請勿轉載、複製、修改或商業使用。',
   };
 
   // ---------- 防劇透 ----------
@@ -451,7 +453,7 @@
     if (home) home.innerHTML = linksHtml('ext-links ext-links--big');
     document.querySelectorAll('.site-footer').forEach((f) => {
       f.insertAdjacentHTML('afterbegin', linksHtml('ext-links'));
-      f.insertAdjacentHTML('beforeend', `<p class="copyright">${QQ.copyright.short}<br>${QQ.copyright.long}</p>`);
+      f.insertAdjacentHTML('beforeend', `<p class="copyright">${QQ.copyright.site}<br>${QQ.copyright.long}</p>`);
     });
   }
 
