@@ -10,7 +10,28 @@
     return `<figure class="merch-card" data-char="${m.char}" data-type="${m.type}">
       ${QQ.guard(m.spoiler || 0, img, 'fig', `${c.name}化形以後的樣子（${QQ.chapterLabel(m.spoiler || 0)}）`)}
       <figcaption>${QQ.avatarHtml(c, 'sm')}<span>${QQ.esc(c.name)}</span><span class="merch-card__type">${QQ.icon(t.icon)}${QQ.esc(t.name)}</span></figcaption>
+      ${wantBtn(`${m.char}-${m.type}`, name)}
     </figure>`;
+  }
+
+  // 「想要這個」：記在 GoatCounter（事件 want-角色-種類），同一台裝置只算一次；不記錄是誰按的
+  const WANT_KEY = 'qq-want';
+  let wanted = {};
+  try { wanted = JSON.parse(localStorage.getItem(WANT_KEY) || '{}'); } catch (e) { wanted = {}; }
+  function wantBtn(id, name) {
+    const done = !!wanted[id];
+    return `<button type="button" class="want-btn${done ? ' is-done' : ''}" data-want="${QQ.esc(id)}" data-name="${QQ.esc(name)}"${done ? ' disabled' : ''}>
+      ${QQ.icon(done ? 'nuomi_love' : 'hearts')}<span>${done ? '你說想要了，謝謝！' : '想要這個'}</span></button>`;
+  }
+  function onWant(btn) {
+    const id = btn.dataset.want;
+    if (wanted[id]) return;
+    wanted[id] = Date.now();
+    try { localStorage.setItem(WANT_KEY, JSON.stringify(wanted)); } catch (e) { /* 存不了就算了 */ }
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: `want-${id}`, title: `想要：${btn.dataset.name}`, event: true });
+    }
+    btn.outerHTML = wantBtn(id, btn.dataset.name);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -27,6 +48,16 @@
 
     const grid = document.getElementById('merch-grid');
     grid.innerHTML = QQ.merch.items.map(cardHtml).join('');
+    grid.addEventListener('click', (e) => {
+      const b = e.target.closest('.want-btn');
+      if (b) onWant(b);
+    });
+    // 三隻一組也可以按
+    hero.insertAdjacentHTML('beforeend', wantBtn('trio-plush', '三隻一組・娃娃吊飾'));
+    hero.addEventListener('click', (e) => {
+      const b = e.target.closest('.want-btn');
+      if (b) onWant(b);
+    });
 
     const want = { char: 'all', type: 'all' };
     function apply() {

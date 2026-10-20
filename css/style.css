@@ -122,16 +122,72 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; letter-spacing
   .brand-mark { width: 28px; height: 28px; }
   .brand-title { font-size: 1.3rem; }
   .brand-seal { width: 31px; height: 33px; font-size: 0.58rem; }
-  .progress-btn { order: 2; margin-left: auto; font-size: 0.78rem; padding: 3px 10px 3px 6px; }
-  .progress-btn .icon { width: 18px; height: 18px; }
+  .search-btn { order: 2; margin-left: auto; padding: 3px 6px; }
+  .progress-btn { order: 3; margin-left: 0; font-size: 0.78rem; padding: 3px 10px 3px 6px; }
+  .progress-btn .icon, .search-btn .icon { width: 18px; height: 18px; }
+  .pt-long { display: none; }
+  .pt-short { display: inline; }
   .site-nav {
-    order: 3; width: 100%; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    order: 4; width: 100%; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none; margin: 0 -16px; padding: 0 16px 2px; width: calc(100% + 32px);
   }
   .site-nav::-webkit-scrollbar { display: none; }
-  .site-nav a { padding: 4px 9px; font-size: 0.9rem; white-space: nowrap; flex: none; }
+  .site-nav a, .nav-group__btn { padding: 4px 9px; font-size: 0.9rem; white-space: nowrap; flex: none; }
   .site-nav .icon { width: 18px; height: 18px; }
 }
+
+/* 頁首：分組下拉選單、搜尋按鈕 */
+.site-nav { align-items: center; }
+.nav-group { position: relative; flex: none; }
+.nav-group__btn {
+  display: inline-flex; align-items: center; gap: 2px; padding: 6px 12px 6px 14px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--ink-soft); font: inherit; font-family: var(--serif); letter-spacing: 0.1em; cursor: pointer;
+}
+.nav-group__btn:hover, .nav-group__btn[aria-expanded="true"] { background: var(--paper-2); }
+.nav-group__btn.is-current { background: var(--moling); color: #fff; }
+.nav-caret { font-size: 0.7em; margin-left: 2px; opacity: 0.7; }
+.nav-menu {
+  position: fixed; z-index: 60; min-width: 180px; padding: 6px; display: grid; gap: 2px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 30px rgba(50, 35, 15, 0.2);
+}
+.nav-menu[hidden] { display: none; }
+.nav-menu a { display: flex; align-items: center; gap: 4px; padding: 7px 12px; border-radius: 10px; white-space: nowrap; }
+.pt-short { display: none; }
+.search-btn {
+  display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px 4px 8px; border: 1px solid var(--line);
+  border-radius: 999px; background: var(--card); color: var(--ink-soft); font: inherit; font-size: 0.85rem; cursor: pointer;
+}
+.search-btn:hover { background: var(--paper-2); }
+.search-btn .icon { width: 22px; height: 22px; margin: 0; }
+.site-header .wrap > .site-nav { margin-left: auto; margin-right: auto; }
+.site-header .wrap { justify-content: flex-start; }
+@media (max-width: 720px) {
+  .site-header .wrap > .site-nav { margin: 0 -16px; justify-content: space-between; }
+  .pt-short { display: inline; }
+  /* 手機：選單不放小圖示，五項剛好一排 */
+  .site-nav > a .icon, .nav-group__btn .icon { display: none; }
+  .site-nav > a, .nav-group__btn { padding: 4px 8px; font-size: 0.88rem; letter-spacing: 0.06em; }
+}
+
+/* 搜尋視窗 */
+dialog.search-dlg {
+  width: min(640px, 94vw); max-height: 82vh; padding: 0; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--card); color: var(--ink); box-shadow: 0 20px 50px rgba(40, 30, 20, 0.3); margin-top: 8vh;
+}
+dialog.search-dlg::backdrop { background: rgba(30, 24, 30, 0.45); }
+.search-dlg__head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--card); }
+.search-dlg__head .icon { width: 28px; height: 28px; margin: 0; }
+.search-dlg__head input { flex: 1; min-width: 0; font: inherit; font-size: 1rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.search-dlg__close { width: 34px; height: 34px; border: 0; border-radius: 50%; background: var(--paper-2); font-size: 1.2rem; cursor: pointer; color: var(--ink-soft); }
+.search-dlg__body { padding: 8px 14px 16px; overflow: auto; max-height: calc(82vh - 64px); }
+.search-hint, .search-hidden { color: var(--ink-faint); font-size: 0.9rem; margin: 10px 2px; }
+.search-results { list-style: none; margin: 0; padding: 0; }
+.search-results a { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; padding: 10px 8px; border-radius: 10px; color: var(--ink); }
+.search-results a:hover { background: var(--paper-2); text-decoration: none; }
+.search-kind { grid-row: span 2; align-self: start; font-size: 0.75rem; padding: 1px 8px; border-radius: 999px; background: var(--sakura-soft); color: var(--sakura-deep); white-space: nowrap; }
+.search-results strong { font-family: var(--serif); }
+.search-snip { font-size: 0.86rem; color: var(--ink-soft); }
+.search-snip mark { background: #fbe3a6; color: inherit; border-radius: 3px; padding: 0 1px; }
 
 /* ---------- 防劇透 ---------- */
 .progress-btn {
@@ -665,6 +721,16 @@ blockquote.quote cite { display: block; font-style: normal; font-size: 0.8rem; c
 .merch-card figcaption { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-family: var(--serif); }
 .merch-card__type { margin-left: auto; display: inline-flex; align-items: center; gap: 2px; font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); }
 .merch-card__type .icon { width: 20px; height: 20px; margin: 0; }
+.want-btn {
+  display: flex; width: 100%; align-items: center; justify-content: center; gap: 4px; margin-top: 8px; padding: 6px 12px;
+  border-radius: 999px; border: 1px solid var(--sakura); background: var(--sakura-soft); color: var(--sakura-deep);
+  font: inherit; font-family: var(--serif); letter-spacing: 0.06em; cursor: pointer;
+}
+.want-btn:hover { background: #f3c9d5; }
+.want-btn .icon { width: 22px; height: 22px; margin: 0; }
+.want-btn.is-done { background: var(--card); border-style: dashed; cursor: default; }
+.merch-hero .want-btn { max-width: 320px; margin: 10px auto 0; }
+.merch-note small { color: var(--ink-faint); }
 
 /* ---------- 名句集 ---------- */
 #quote-filter button { display: inline-flex; align-items: center; gap: 4px; }
@@ -674,12 +740,33 @@ blockquote.quote cite { display: block; font-style: normal; font-size: 0.8rem; c
   border: 1px solid var(--line); border-left: 4px solid var(--c, var(--sakura)); border-radius: var(--radius);
 }
 .qcard[hidden] { display: none; }
+.qcard:target { box-shadow: 0 0 0 2px var(--sakura-deep); }
 .qcard .spoiler { margin: 0; }
 .qcard__text { font-family: var(--serif); font-size: 1.25rem; line-height: 1.7; margin: 0 0 6px; color: var(--ink); }
 .qcard__note { margin: 0 0 12px; font-size: 0.88rem; color: var(--ink-faint); }
 .qcard__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .qcard__who { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: 0.9rem; }
 .qcard__foot .chip { font-size: 0.8rem; }
+
+/* ---------- 插畫總覽 ---------- */
+#gallery-filter button { display: inline-flex; align-items: center; gap: 4px; }
+#gallery-filter .icon { width: 20px; height: 20px; margin: 0; }
+.gallery-all { margin-top: 22px; columns: 4 220px; column-gap: 14px; }
+.gal-item { break-inside: avoid; margin: 0 0 14px; }
+.gal-item[hidden] { display: none; }
+.gal-item img { width: 100%; height: auto; border-radius: 10px; cursor: zoom-in; box-shadow: 0 3px 12px rgba(70, 50, 20, 0.15); }
+.gal-item figcaption { font-size: 0.82rem; color: var(--ink-soft); text-align: center; margin-top: 5px; }
+.gal-item .spoiler--fig .spoiler__btn { aspect-ratio: 4 / 3; }
+
+/* ---------- 番外・現代校園 ---------- */
+.au-note { text-align: center; color: var(--ink-faint); font-size: 0.9rem; margin: 6px 0 0; }
+.au-grid { margin-top: 22px; display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.au-card { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 10px 14px; }
+.au-card img { width: 100%; height: auto; border-radius: 10px; cursor: zoom-in; }
+.au-card figcaption { display: grid; gap: 2px; margin-top: 8px; padding: 0 4px; }
+.au-card strong { font-family: var(--serif); font-size: 1.05rem; }
+.au-card figcaption span:last-child { font-size: 0.88rem; color: var(--ink-soft); }
+.au-no { font-family: var(--serif); color: var(--sakura-deep); font-size: 0.8rem; letter-spacing: 0.1em; }
 
 /* ---------- 看大圖 ---------- */
 dialog.lightbox {

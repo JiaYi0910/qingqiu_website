@@ -2,7 +2,7 @@
 (function () {
   const QQ = window.QQ;
 
-  function cardHtml(q) {
+  function cardHtml(q, i) {
     const c = QQ.character(q.who);
     const ch = QQ.chapter(q.ch) || {};
     const inner = `<p class="qcard__text">「${QQ.esc(q.text)}」</p>
@@ -11,12 +11,14 @@
         <a class="qcard__who" href="${QQ.charHref(c.id)}">${QQ.avatarHtml(c, 'sm')}${QQ.esc(q.as || c.name)}</a>
         <a class="chip" href="${QQ.chapterHref(q.ch)}">${QQ.chapterLabel(q.ch)}〈${QQ.esc(ch.title || '')}〉</a>
       </div>`;
-    return `<article class="qcard" data-who="${q.who}" style="--c:${c.color}">${QQ.guard(q.ch, inner, 'block', `${QQ.chapterLabel(q.ch)}的一句話`)}</article>`;
+    return `<article class="qcard" id="q-${i}" data-who="${q.who}" style="--c:${c.color}">${QQ.guard(q.ch, inner, 'block', `${QQ.chapterLabel(q.ch)}的一句話`)}</article>`;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('quotes');
     grid.innerHTML = QQ.quotes.map(cardHtml).join('');
+    // 從搜尋點進來（quotes.html#q-3）：捲到那一句
+    if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView({ block: 'center' });
 
     // 照說話的人篩選（只列有句子的人）
     const who = [...new Set(QQ.quotes.map((q) => q.who))].map(QQ.character);

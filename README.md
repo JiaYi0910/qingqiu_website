@@ -62,6 +62,14 @@ qingqiu_website/
 
 **小圖示**：資料裡的 `icon: 'lantern'` 就是 `images/icons/lantern.gif`。想換圖示，從 `糯米\表情符號\圖示\會動的`（或 `糯米表情\會動的`）複製一個 GIF 進 `images/icons/`，再把 `icon` 改成它的檔名。頁首選單的圖示在 `js/common.js` 的 `QQ.pages`。
 
+**頁首選單**：在 `js/common.js` 的 `QQ.pages`。有 `group` 的會收進「故事／世界／畫廊」下拉選單（`QQ.navGroups`），加新頁面時盡量放進群組，標題列才不會變長。
+
+**搜尋**：右上角的放大鏡，會搜地點、角色、章節、信物、名句、小百科；只找讀者讀到的章節。新資料不用另外登記，會自動被搜到。
+
+**周邊「想要這個」**：每按一次，GoatCounter 後台會多一筆事件，名稱是 `want-角色-種類`（例如 `want-moling-plush`），在 https://jiayi.goatcounter.com 看。同一台裝置每款只算一次。
+
+**插畫總覽**：自動從各份資料收集圖片，不用另外維護清單。番外的圖在 `js/data/au.js`。
+
 **KadoKado 上架新的一章**：在 `js/data/chapters.js` 那一章加上 `kado: 編號`（KadoKado 章節網址 `/chapter/` 後面的數字）。章節頁會多一顆「去 KadoKado 讀這一章」，首頁的「KadoKado 上架到第幾章」也會自動更新。
 
 **首頁的「最近更新」**：寫在 `js/data/updates.js`，新的放最上面，首頁顯示最新三筆。這裡每個人都看得到，不要寫劇情。
