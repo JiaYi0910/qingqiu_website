@@ -292,7 +292,10 @@
       const w = ((h.w || 110) / m.width) * 100;
       const hh = ((h.h || 40) / m.height) * 100;
       const active = o.active && h.place === o.active ? ' is-active' : '';
-      return `<a class="spot spot--novel${active}" href="${href}" style="left:${(h.x / m.width) * 100}%;top:${(h.y / m.height) * 100}%;width:${w}%;height:${hh}%" aria-label="${QQ.esc(h.label)}"><span class="spot-dot"></span><span class="spot-tip">${QQ.esc(h.label)}</span></a>`;
+      // data-place / data-spot：首頁「在地圖上看」用來找這一章的地方（師門圖的小地方都屬於 spotsOf 那個地點）
+      const place = h.place || (h.spot && o.spotsOf ? o.spotsOf.id : '');
+      const data = `${place ? ` data-place="${place}"` : ''}${h.spot ? ` data-spot="${QQ.esc(h.spot)}"` : ''}`;
+      return `<a class="spot spot--novel${active}" href="${href}"${data} style="left:${(h.x / m.width) * 100}%;top:${(h.y / m.height) * 100}%;width:${w}%;height:${hh}%" aria-label="${QQ.esc(h.label)}"><span class="spot-dot"></span><span class="spot-tip">${QQ.esc(h.label)}</span></a>`;
     }).join('');
     return `<div class="map-frame map-frame--mini${QQ.param('debug') ? ' map-debug' : ''}"><div class="map-inner">
       <img src="${QQ.esc(m.image)}" alt="${QQ.esc(m.title)}" width="${m.width}" height="${m.height}" loading="lazy">

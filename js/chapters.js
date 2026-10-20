@@ -14,6 +14,8 @@
     detail += `<p class="ch-summary">${QQ.esc(ch.summary)}</p>`;
     const placeIds = [...new Set((ch.places || []).map((p) => p.id))];
     if (placeIds.length) detail += `<div class="chips">${placeIds.map(QQ.placeChip).join('')}</div>`;
+    // 首頁地圖上只亮這一章的地方，照出現的順序標號碼
+    if (!todo && placeIds.length) detail += `<a class="read-btn route-btn" href="index.html?ch=${ch.no}">${QQ.icon('map')}在地圖上看</a>`;
     // 還沒讀到的章節：章名留著，重點和地點先藏起來
     html += QQ.guard(ch.no, detail, 'block', todo ? '還沒寫的章節大綱' : '你還沒讀到這一章');
     // 已經在 KadoKado 上架的章節：去讀這一章（不算劇透，所以放在鎖外面）

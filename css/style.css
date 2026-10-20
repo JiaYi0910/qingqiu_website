@@ -381,6 +381,68 @@ dialog.progress-dlg::backdrop { background: rgba(30, 24, 30, 0.45); }
 .legend-dot--map { background: var(--paper-3); border-color: var(--gold); }
 .legend-dot--arrow { background: var(--lamp); }
 
+/* 首頁：在地圖上看（?ch=章號）—— 這一章的地方亮起來、標上號碼，其他的變淡 */
+.route {
+  margin: 0 0 14px; padding: 14px 18px; background: var(--card);
+  border: 1px solid var(--line); border-left: 4px solid var(--sakura-deep); border-radius: var(--radius);
+  scroll-margin-top: 96px;
+}
+.route__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px; }
+.route__head h2 { margin: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 6px; }
+.route__nav { display: flex; gap: 6px; }
+.route__nav button, .route-start button, .route__locked button {
+  border: 1px solid var(--line); background: var(--paper); padding: 4px 12px; border-radius: 999px;
+  font: inherit; font-size: 0.88rem; cursor: pointer; color: var(--ink-soft);
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.route__nav button:hover:not(:disabled), .route-start button:hover, .route__locked button:hover { background: var(--sakura-soft); }
+.route__nav button:disabled { opacity: 0.4; cursor: default; }
+.route__close { font-size: 1.05rem !important; line-height: 1; padding: 4px 10px !important; }
+.route__summary { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
+.route--steps { margin: 12px 0 0; }
+.route__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.route__list li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; }
+.route__list li > .route-no { margin-top: 2px; }
+.route__list p { margin: 2px 0 0; font-size: 0.92rem; color: var(--ink-soft); }
+.route__place { font-family: var(--serif); font-weight: 700; }
+.route__spot { font-family: var(--serif); color: var(--ink-soft); }
+.route__where {
+  margin-left: 6px; font-size: 0.75rem; padding: 1px 8px; border-radius: 999px;
+  background: var(--paper-2); color: var(--ink-faint); border: 1px solid var(--line); white-space: nowrap;
+}
+.route__note { margin: 10px 0 0; font-size: 0.85rem; color: var(--ink-faint); }
+.route__note a { margin-left: 4px; }
+.route__locked { margin: 10px 0 0; color: var(--ink-soft); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.route-start { text-align: center; margin: 12px 0 0; }
+#mini-title { scroll-margin-top: 96px; }
+.route-start .icon, .route__head .icon { width: 24px; height: 24px; margin: 0; }
+.route-no {
+  display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 6px;
+  border-radius: 999px; background: var(--sakura-deep); color: #fff; border: 2px solid #fff;
+  font-size: 0.78rem; font-weight: 700; line-height: 1; white-space: nowrap;
+  box-shadow: 0 1px 5px rgba(70, 40, 30, 0.35); font-family: var(--sans);
+}
+.spot .route-no { position: absolute; left: 50%; top: -2px; transform: translate(-50%, -100%); }
+.spot.near-top .route-no { top: auto; bottom: -4px; transform: translate(-50%, 100%); } /* 圖最上緣的木牌：號碼放下面，才不會被切掉 */
+.spot.on-route .spot-dot { display: none; }
+.spot.on-route::after {
+  box-shadow: 0 0 0 2px var(--sakura-deep), 0 0 16px 4px rgba(233, 163, 182, 0.8);
+  background: rgba(255, 240, 245, 0.22);
+}
+.map-frame.is-route .spot:not(.on-route) { opacity: 0.3; }
+.map-frame.is-route .map-inner > img { filter: saturate(0.75) brightness(0.96); }
+/* 這一章的地方都不在這張圖上（例如全在人間）：圖中間放一句話，帶讀者往下看小地圖 */
+.route-away {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px; max-width: calc(100% - 32px);
+  padding: 10px 18px; border-radius: 999px; background: var(--card); border: 1px solid var(--sakura);
+  box-shadow: var(--shadow); font-family: var(--serif); color: var(--sakura-deep); text-align: center;
+}
+.route-away:hover { text-decoration: none; background: var(--sakura-soft); }
+.route-away .icon { width: 26px; height: 26px; margin: 0; flex: none; }
+/* 桌機：清單排兩欄，地圖才不會被擠到下面太遠 */
+@media (min-width: 900px) { .route__list { grid-template-columns: 1fr 1fr; column-gap: 28px; } }
+
 /* 地點小卡（桌機在地圖右邊，手機在下方） */
 .spot-card {
   position: fixed; z-index: 40; right: 24px; top: 84px; width: min(380px, calc(100% - 32px));
@@ -627,6 +689,8 @@ blockquote.quote cite { display: block; font-style: normal; font-size: 0.8rem; c
   color: var(--sakura-deep); font-size: 0.88rem;
 }
 .read-btn:hover { text-decoration: none; background: #f3c9d5; }
+.route-btn { border-color: var(--line); background: var(--paper-2); color: var(--ink-soft); margin-right: 8px; }
+.route-btn:hover { background: var(--paper-3); }
 .read-btn .icon { width: 22px; height: 22px; margin: 0; }
 .ch-thumb { float: right; width: 64px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 8px; margin-left: 12px; cursor: zoom-in; }
 @media (max-width: 560px) { .ch { grid-template-columns: 1fr; gap: 2px; } }

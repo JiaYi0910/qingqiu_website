@@ -145,5 +145,157 @@
     // 從別頁帶 ?place=xxx 回來時，直接打開那張小卡
     const want = QQ.param('place');
     if (want) open(want);
+
+    setupRoute(frame, card);
   });
+
+  // ---------- 在地圖上看（網址 ?ch=章號）----------
+  // 地圖上只亮這一章出現的地方，號碼是這一章 places 的順序；同一個地方出現兩次就寫「1・3」。
+  // 人間的地方標在下面的人間地圖，初雪坡裡的小地方標在師門圖。
+  const routeChapters = () => QQ.chapters.filter((c) => c.written && (c.places || []).length);
+
+  // 在一張地圖上找這一站的木牌：先找同一個小地方，沒有就找整個地點；同一個地方有兩個木牌時，挑名字一樣的
+  function findSpot(frameEl, step) {
+    const all = [...frameEl.querySelectorAll('.spot')].filter((el) => el.dataset.place === step.id);
+    const exact = step.spot ? all.filter((el) => el.dataset.spot === step.spot) : [];
+    const list = exact.length ? exact : all.filter((el) => !el.dataset.spot);
+    const name = exact.length ? step.spot : (QQ.place(step.id) || {}).name;
+    return list.find((el) => el.getAttribute('aria-label') === name) || list[0] || null;
+  }
+
+  function markRoute(frameEl, steps) {
+    const nums = new Map();
+    steps.forEach((s, i) => {
+      const el = findSpot(frameEl, s);
+      if (el) nums.set(el, [...(nums.get(el) || []), i + 1]);
+    });
+    nums.forEach((list, el) => {
+      el.classList.add('on-route');
+      el.classList.toggle('near-top', parseFloat(el.style.top) < 10);
+      el.insertAdjacentHTML('beforeend', `<span class="route-no">${list.join('・')}</span>`);
+    });
+    frameEl.classList.toggle('is-route', nums.size > 0);
+    return nums;
+  }
+
+  function clearRoute(frameEl) {
+    frameEl.classList.remove('is-route');
+    frameEl.querySelectorAll('.on-route').forEach((el) => el.classList.remove('on-route', 'near-top'));
+    frameEl.querySelectorAll('.route-no, .route-away').forEach((el) => el.remove());
+  }
+
+  function setChParam(no) {
+    try {
+      const u = new URL(location.href);
+      if (no == null) u.searchParams.delete('ch');
+      else u.searchParams.set('ch', no);
+      history.replaceState(null, '', u);
+    } catch (e) { /* 直接雙擊打開檔案時，有些瀏覽器不讓改網址，沒關係 */ }
+  }
+
+  function setupRoute(frame, card) {
+    const panel = document.getElementById('route');
+    const stepsBox = document.getElementById('route-steps');
+    const start = document.getElementById('route-start');
+    const miniFrames = [...document.querySelectorAll('#mini-maps .map-frame')];
+    const [renjianFrame, shimenFrame] = miniFrames;
+    const revealed = new Set(); // 還沒讀到、但按了「還是要看」的章節
+    let current = null;
+
+    start.innerHTML = `<button type="button">${QQ.icon('book_open')}一章一章看，故事走過哪裡</button>`;
+    start.querySelector('button').addEventListener('click', () => show(routeChapters()[0].no, true));
+
+    // 這一站在哪張圖上：主地圖沒有的，標「人間地圖」；初雪坡裡有木牌的小地方，標「師門圖」
+    function whereTag(s) {
+      if (shimenFrame && s.spot && findSpot(shimenFrame, s)?.dataset.spot === s.spot) return '師門圖';
+      if (!findSpot(frame, s) && renjianFrame && findSpot(renjianFrame, s)) return '人間地圖';
+      return '';
+    }
+
+    function stepHtml(s, i) {
+      const p = QQ.place(s.id);
+      const where = whereTag(s);
+      return `<li><span class="route-no">${i + 1}</span><div>
+        <a class="route__place" href="${QQ.placeHref(s.id)}">${QQ.esc(p ? p.name : s.id)}</a>${s.spot ? `<span class="route__spot">・${QQ.esc(s.spot)}</span>` : ''}
+        ${where ? `<span class="route__where">${where}</span>` : ''}
+        ${s.what ? `<p>${QQ.esc(s.what)}</p>` : ''}</div></li>`;
+    }
+
+    function show(no, scroll) {
+      const list = routeChapters();
+      const ch = list.find((c) => c.no === no);
+      [frame, ...miniFrames].forEach(clearRoute);
+      if (!ch) { hide(); return; }
+      current = ch.no;
+      card.hidden = true;
+      const i = list.indexOf(ch);
+      const prev = list[i - 1];
+      const next = list[i + 1];
+      const unlocked = QQ.isRead(ch.no) || revealed.has(ch.no);
+
+      let html = `<div class="route__head"><h2>${QQ.icon('map')}${QQ.chapterLabel(ch.no)}〈${QQ.esc(ch.title)}〉走過的地方</h2>
+        <div class="route__nav">
+          <button type="button" data-go="${prev ? prev.no : ''}"${prev ? '' : ' disabled'}>← 上一章</button>
+          <button type="button" data-go="${next ? next.no : ''}"${next ? '' : ' disabled'}>下一章 →</button>
+          <button type="button" class="route__close" data-close aria-label="關掉，回到整張地圖">×</button>
+        </div></div>`;
+      // 章名、上一章／下一章放在地圖上面；號碼清單放在地圖下面，打開就先看到地圖
+      let steps = '';
+      if (unlocked) {
+        html += `<p class="route__summary">${QQ.esc(ch.summary)}</p>`;
+        const onMini = ch.places.some((s) => whereTag(s));
+        steps = `<ol class="route__list">${ch.places.map(stepHtml).join('')}</ol>
+          <p class="route__note">號碼是這一章出現的順序。${onMini ? '標著「人間地圖」「師門圖」的地方，在<a href="#mini-title">下面的小地圖</a>上也有號碼。' : ''}
+          <a href="${QQ.chapterHref(ch.no)}">去章節頁 →</a></p>`;
+      } else {
+        html += `<p class="route__locked">${QQ.icon('lock')}你還沒讀到${QQ.chapterLabel(ch.no)}，地點先不亮。
+          <button type="button" data-reveal>還是要看</button></p>`;
+      }
+      panel.innerHTML = html;
+      panel.hidden = false;
+      stepsBox.innerHTML = steps;
+      stepsBox.hidden = !steps;
+      start.hidden = true;
+      setChParam(ch.no);
+
+      if (unlocked) {
+        const nums = markRoute(frame, ch.places);
+        miniFrames.forEach((f) => markRoute(f, ch.places));
+        // 這一章全在人間：青丘地圖上沒有東西亮，放一句話帶讀者往下看人間地圖
+        if (!nums.size) {
+          frame.classList.add('is-route');
+          frame.insertAdjacentHTML('beforeend', `<a class="route-away" href="#mini-title">${QQ.icon('rain')}這一章都在人間，地方標在下面的人間地圖 ↓</a>`);
+        }
+        // 手機上地圖可以左右滑：把這一章的地方捲到看得到的位置
+        if (frame.scrollWidth > frame.clientWidth && nums.size) {
+          const xs = [...nums.keys()].map((el) => el.offsetLeft);
+          const min = Math.min(...xs);
+          const max = Math.max(...xs);
+          frame.scrollLeft = max - min < frame.clientWidth - 80 ? (min + max) / 2 - frame.clientWidth / 2 : min - 60;
+        }
+      }
+      if (scroll) panel.scrollIntoView({ block: 'start' });
+    }
+
+    function hide() {
+      current = null;
+      [frame, ...miniFrames].forEach(clearRoute);
+      panel.hidden = true;
+      panel.innerHTML = '';
+      stepsBox.hidden = true;
+      stepsBox.innerHTML = '';
+      start.hidden = false;
+      setChParam(null);
+    }
+
+    panel.addEventListener('click', (e) => {
+      const go = e.target.closest('[data-go]');
+      if (go && go.dataset.go !== '') show(Number(go.dataset.go));
+      if (e.target.closest('[data-close]')) hide();
+      if (e.target.closest('[data-reveal]')) { revealed.add(current); show(current); }
+    });
+
+    const no = QQ.param('ch');
+    if (no != null && no !== '') show(Number(no), true);
+  }
 })();

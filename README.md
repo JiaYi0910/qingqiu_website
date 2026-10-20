@@ -44,6 +44,8 @@ qingqiu_website/
 **寫好新的一章**：打開 `js/data/chapters.js`，找到那一章，把 `written: false` 改成 `true`，
 在 `places` 加上發生的地點，例如 `{ id: 'chuxuepo', spot: '第四十三階', what: '這一章在這裡發生的事' }`，
 在 `characters` 加上出場角色的代號。地點頁和角色頁會自動多出這一章。
+`places` 請照這一章出現的順序寫：章節頁的「在地圖上看」會打開首頁地圖（`index.html?ch=章號`），照這個順序標 1、2、3。
+人間的地方會標在人間地圖；初雪坡的小地方（`spot`）如果師門圖上有木牌，也會標在師門圖。
 
 **換地圖**：把新圖放到 `images/map/`，改 `js/data/map.js` 的 `image`、`width`、`height`，
 再用小畫家打開圖，滑鼠移到每個木牌中間，看左下角的座標填進 `x`、`y`。
