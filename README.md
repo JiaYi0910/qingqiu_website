@@ -82,7 +82,7 @@ qingqiu_website/
 **番外・現代校園**：圖和標題在 `js/data/au.js`。
 
 **KadoKado 上架新的一章**：不用手動改了。GitHub 每天下午（台灣時間 14:20，17:20、21:20 再各看一次）會自動跑 `.github/workflows/kado.yml`
-（這個檔案要在 GitHub 網頁上建立：Add file → Create new file，檔名打 `.github/workflows/kado.yml`，內容複製 `docs/kado-workflow.yml`）：
+（這個檔案是在 GitHub 網頁上建立的，因為電腦上的 GitHub 登入沒有權限改排程檔；要改排程時，也請在 GitHub 網頁上改）：
 用 `tools/update_kado.mjs` 去 KadoKado 抓已經上架的章節，把編號寫進 `js/data/chapters.js` 的 `kado:`，有新章節就自己提交。
 章節頁會多一顆「去 KadoKado 讀這一章」，首頁的「KadoKado 上架到第幾章」也會跟著更新。想馬上更新，到 GitHub 的 Actions 分頁按「Run workflow」。
 因為 GitHub 會自己提交，**在電腦上改網站之前，先 `git pull` 把它的提交拿回來**，推上去才不會被擋。
