@@ -9,7 +9,7 @@
 //   facts      [標題, 內容, 第幾章才知道] 的清單（第三個可省略）
 //   body       介紹（一段一段；會劇透的段落寫成 { level: 第幾章才知道, text }）
 //   quotes     原文短句 { text, ch }
-//   images     插畫；banner 角色卡最上面的橫幅（可省略）
+//   images     插畫；banner 角色卡最上面的橫幅（可省略）；sheet 角色設定圖（卡片上出現「角色設定圖」按鈕）
 //   places     常出現的地點代號
 //   minor      true = 配角，放在角色頁下面的「其他的人」
 // 「出場章節」不用寫在這裡，會從 chapters.js 自動找出來。
@@ -25,6 +25,7 @@ QQ.characters = [
     avatar: 'images/characters/zhaozhao-avatar.jpg',
     portrait: { src: 'images/characters/zhaozhao-full-34.jpg', full: 'images/characters/zhaozhao-full.jpg', caption: '昭昭' },
     banner: { src: 'images/characters/zhaozhao-banner.jpg', caption: '昭昭' },
+    sheet: { src: 'images/characters/zhaozhao-sheet.jpg' }, // 角色設定圖（卡片上的按鈕）
     tagline: '櫻粉色的九尾狐。笑意盈盈，身上帶著櫻花的香氣，是糯米唯一的師父。',
     facts: [
       ['毛色', '櫻粉色，頭頂一對櫻粉色的長耳朵'],
@@ -57,6 +58,7 @@ QQ.characters = [
     avatar: 'images/characters/moling-avatar.jpg',
     portrait: { src: 'images/characters/moling-full-34.jpg', full: 'images/characters/moling-full.jpg', caption: '墨凌' },
     banner: { src: 'images/characters/moling-banner.jpg', caption: '墨凌' },
+    sheet: { src: 'images/characters/moling-sheet.jpg' }, // 角色設定圖（卡片上的按鈕）
     tagline: '墨黑色的九尾狐，傳說中青丘最厲害的狐妖。臉很冷，耳朵很容易紅。',
     facts: [
       ['毛色', '墨黑色，頭頂一對漆黑的狐狸耳朵'],
@@ -111,11 +113,11 @@ QQ.characters = [
       { text: '這個黑漆漆的是誰！', ch: 29 },
     ],
     banner: { src: 'images/characters/nuomi-banner.jpg', caption: '糯米' },
+    sheet: { src: 'images/characters/nuomi-sheet.jpg', spoiler: 28 }, // 角色設定圖（卡片上的按鈕）
     images: [
       { src: 'images/characters/card-17-transformation.jpg', full: 'images/scenes/17-transformation.jpg', caption: '化形', ch: 28 },
       { src: 'images/characters/nuomi-fox.jpg', caption: '糯米・狐狸的樣子' },
       { src: 'images/characters/nuomi-peach.jpg', spoiler: 28, caption: '糯米・桃子' },
-      { src: 'images/characters/nuomi-avatar-human.jpg', spoiler: 28, caption: '糯米・化形版頭像' },
     ],
     places: ['zhaozhao-jia', 'yunye', 'xingdengxiang', 'jinghu', 'taolin', 'chuxuepo', 'leijietai'],
   },

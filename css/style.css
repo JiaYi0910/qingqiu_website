@@ -412,7 +412,7 @@ blockquote.quote cite { display: block; font-style: normal; font-size: 0.8rem; c
 }
 .char-head { display: grid; grid-template-columns: 260px 1fr; gap: 26px; align-items: start; }
 /* 角色圖一律一樣大：放進 3:4 的框，整張圖完整顯示（不裁切），多出來的邊補淡米色 */
-.char-head .portrait img,
+.char-head .portrait > img,
 .char .gallery img,
 .minor-pics img {
   width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain;
@@ -430,6 +430,16 @@ blockquote.quote cite { display: block; font-style: normal; font-size: 0.8rem; c
 .facts dd { margin: 0; }
 .char h3 { font-size: 1.05rem; margin: 20px 0 8px; }
 @media (max-width: 760px) { .char-head { grid-template-columns: 1fr; } .char-head .portrait { max-width: 280px; } }
+.portrait .sheet-btn, .portrait > .spoiler { margin-top: 10px; }
+.sheet-btn {
+  display: flex; width: 100%; align-items: center; justify-content: center; gap: 4px; padding: 7px 12px;
+  border-radius: 999px; border: 1px solid var(--c, var(--line)); background: var(--card);
+  color: var(--ink); font: inherit; font-family: var(--serif); letter-spacing: 0.08em; cursor: pointer;
+}
+.sheet-btn:hover { background: var(--paper-2); }
+.sheet-btn .icon { width: 22px; height: 22px; margin: 0; }
+.portrait > .spoiler { display: block; }
+.portrait > .spoiler .spoiler__btn { width: 100%; justify-content: center; }
 .char-banner { width: 100%; height: auto; border-radius: var(--radius); margin-bottom: 22px; cursor: zoom-in; }
 
 /* 關係圖 */

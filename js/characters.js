@@ -23,7 +23,13 @@
     let p = c.portrait;
     if (c.portraitBefore && !QQ.isRead(c.portraitBefore.level)) p = c.portraitBefore;
     if (!p) return `<div class="portrait portrait--blank" aria-hidden="true">${QQ.esc(c.name)}</div>`;
-    return `<div class="portrait"><img src="${QQ.esc(p.src)}" data-full="${QQ.esc(p.full || p.src)}" alt="${QQ.esc(p.caption)}" data-caption=""></div>`;
+    // 角色設定圖：圖片下面一顆按鈕，點了看大圖
+    let sheet = '';
+    if (c.sheet) {
+      const btn = `<button type="button" class="sheet-btn" data-full="${QQ.esc(c.sheet.src)}" data-caption="">${QQ.icon('name_tag')}角色設定圖</button>`;
+      sheet = QQ.guard(c.sheet.spoiler || 0, btn, 'inline', `角色設定圖（${QQ.chapterLabel(c.sheet.spoiler || 0)}）`);
+    }
+    return `<div class="portrait"><img src="${QQ.esc(p.src)}" data-full="${QQ.esc(p.full || p.src)}" alt="${QQ.esc(p.caption)}" data-caption="">${sheet}</div>`;
   }
 
   function charHtml(c) {

@@ -247,10 +247,10 @@
     dlg.querySelector('button').addEventListener('click', () => dlg.close());
     dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
     document.addEventListener('click', (e) => {
-      const t = e.target.closest('img[data-full]');
+      const t = e.target.closest('img[data-full], button[data-full]');
       if (!t) return;
       img.src = t.dataset.full;
-      img.alt = t.alt;
+      img.alt = t.alt || t.textContent.trim();
       cap.textContent = t.dataset.caption ?? t.alt ?? '';
       dlg.showModal();
     });
