@@ -16,10 +16,10 @@
     })[c]);
   };
 
-  // 章節的稱呼：0 → 序章，99 → 尾聲，其他 → 第N章
+  // 章節的稱呼：0 → 序章，99 → 終章，其他 → 第N章
   QQ.chapterLabel = function (no) {
     if (no === 0) return '序章';
-    if (no === 99) return '尾聲';
+    if (no === 99) return '終章';
     return '第' + cnNumber(no) + '章';
   };
 
@@ -42,7 +42,7 @@
   // 每段內容的「劇透章節」：章節用 ch，段落／事實用 level；沒寫就是 0（序章就知道的事）。
   // 選擇存在這台電腦的瀏覽器裡；存不了的時候改放在網址的 ?read= 上。
   const PROGRESS_KEY = 'qq-progress';
-  QQ.ALL = 999; // 全部顯示（包含還沒寫的章節大綱）
+  QQ.ALL = 999; // 全部顯示
   QQ.progress = (function () {
     const fromUrl = new URLSearchParams(location.search).get('read');
     if (fromUrl !== null && fromUrl !== '' && !isNaN(Number(fromUrl))) return Number(fromUrl);
@@ -78,7 +78,9 @@
 
   function lockLabel(level) {
     const ch = QQ.chapter(level);
-    if (level >= 35 || (ch && !ch.written)) return '還沒寫的內容';
+    // 那一章還沒寫（或比最後一章還後面）才說「還沒寫」；沒載入章節資料的頁面就照章號寫
+    const list = QQ.chapters || [];
+    if (ch ? !ch.written : (list.length && level > QQ.maxCh(list.map((c) => c.no)))) return '還沒寫的內容';
     return `${QQ.chapterLabel(level)}的內容`;
   }
 
@@ -121,7 +123,7 @@
   function progressOptions() {
     const opts = (QQ.chapters || []).filter((ch) => ch.written)
       .map((ch) => `<option value="${ch.no}"${QQ.progress === ch.no ? ' selected' : ''}>${QQ.chapterLabel(ch.no)}〈${QQ.esc(ch.title)}〉</option>`);
-    opts.push(`<option value="${QQ.ALL}"${QQ.progress === QQ.ALL ? ' selected' : ''}>全部顯示（包含還沒寫的大綱）</option>`);
+    opts.push(`<option value="${QQ.ALL}"${QQ.progress === QQ.ALL ? ' selected' : ''}>全部顯示</option>`);
     return opts.join('');
   }
 
@@ -326,7 +328,10 @@
       add('地點', p.name, [p.name, v.tagline, v.where].join(' '), href, first);
       if (p.safe) add('地點', p.name, [p.tagline, p.where].join(' '), href, p.safe.level);
       (p.body || []).forEach((t) => (typeof t === 'string' ? add('地點', p.name, t, href, first) : add('地點', p.name, t.text, href, Math.max(first, t.level))));
-      (p.spots || []).forEach((s) => add('地點', `${p.name}・${s.name}`, `${s.name} ${s.text}`, href, Math.max(first, QQ.maxCh(s.ch))));
+      (p.spots || []).forEach((s) => {
+        add('地點', `${p.name}・${s.name}`, `${s.name} ${s.text}`, href, Math.max(first, QQ.maxCh(s.ch)));
+        (s.more || []).forEach((m) => add('地點', `${p.name}・${s.name}`, m.text, href, Math.max(first, m.level)));
+      });
     });
     (QQ.characters || []).forEach((c) => {
       const first = QQ.charFirst(c.id);
@@ -344,6 +349,7 @@
       const href = `items.html#${it.id}`;
       add('信物', it.name, it.name, href, QQ.itemFirst(it));
       add('信物', it.name, [it.from, it.to, it.now, it.text].join(' '), href, QQ.itemLast(it));
+      (it.more || []).forEach((m) => add('信物', it.name, `${m.text} ${m.now || ''}`, href, Math.max(QQ.itemLast(it), m.level)));
     });
     (QQ.quotes || []).forEach((q, i) => {
       const c = QQ.character(q.who);

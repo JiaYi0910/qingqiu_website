@@ -7,15 +7,26 @@
     return `<img class="item__img" src="${QQ.esc(it.image.src)}" data-full="${QQ.esc(it.image.full || it.image.src)}" data-caption="" alt="${QQ.esc(it.image.caption)}" loading="lazy">`;
   }
 
+  // 後來的章節又寫到它：more 裡的段落各自照章節上鎖；「現在在哪」用讀者讀到的最新一段
+  function nowOf(it) {
+    const later = (it.more || []).filter((m) => m.now && QQ.isRead(m.level));
+    return later.length ? later[later.length - 1].now : it.now;
+  }
+
+  function chaptersOf(it) {
+    return [...new Set([...(it.ch || []), ...(it.more || []).map((m) => m.level)])].sort((a, b) => a - b);
+  }
+
   function detailHtml(it) {
-    let html = `<dl class="facts item__facts"><dt>從哪裡來</dt><dd>${QQ.esc(it.from)}</dd><dt>給了誰</dt><dd>${QQ.esc(it.to)}</dd><dt>現在在哪</dt><dd>${QQ.esc(it.now)}</dd></dl>`;
+    let html = `<dl class="facts item__facts"><dt>從哪裡來</dt><dd>${QQ.esc(it.from)}</dd><dt>給了誰</dt><dd>${QQ.esc(it.to)}</dd><dt>現在在哪</dt><dd>${QQ.esc(nowOf(it))}</dd></dl>`;
     html += `<p>${QQ.esc(it.text)}</p>`;
+    html += QQ.paras((it.more || []).map((m) => ({ level: m.level, text: m.text })));
     if (it.quote) {
       const ch = QQ.chapter(it.quote.ch) || {};
       html += `<blockquote class="quote">「${QQ.esc(it.quote.text)}」<cite>${QQ.chapterLabel(it.quote.ch)}〈${QQ.esc(ch.title || '')}〉</cite></blockquote>`;
     }
     html += `<div class="chips">${(it.people || []).map(QQ.charChip).join('')}${(it.places || []).map(QQ.placeChip).join('')}</div>`;
-    html += `<p class="item__chapters">出現在：${(it.ch || []).map((no) => `<a href="${QQ.chapterHref(no)}">${QQ.chapterLabel(no)}</a>`).join('、')}</p>`;
+    html += `<p class="item__chapters">出現在：${chaptersOf(it).map((no) =>`<a href="${QQ.chapterHref(no)}">${QQ.chapterLabel(no)}</a>`).join('、')}</p>`;
     return html;
   }
 

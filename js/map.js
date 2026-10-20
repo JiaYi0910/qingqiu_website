@@ -26,7 +26,7 @@
     if (img) html += `<img class="spot-card__img" src="${QQ.esc(img.src)}" alt="${QQ.esc(img.caption)}">`;
     html += '<div class="spot-card__body">';
     html += `<span class="tag tag--region">${QQ.esc(region ? region.name : '')}</span> `;
-    if (p.kind === 'map') html += '<span class="tag tag--map">小說還沒寫到</span>';
+    if (p.kind === 'map') html += '<span class="tag tag--map">小說裡沒有寫到</span>';
     html += `<h2>${QQ.esc(p.name)}</h2>`;
 
     // 讀者還沒讀到這個地方：只留名字
@@ -68,7 +68,7 @@
       return `<div class="region-box">
         <h3>${QQ.icon(r.icon)}${QQ.esc(r.name)}</h3><p>${QQ.esc(r.desc)}</p>
         <div class="chips">${novel.map((p) => QQ.placeChip(p.id)).join('')}</div>
-        ${mapOnly.length ? `<p style="margin:10px 0 6px;font-size:.85rem">地圖上的地名（小說還沒寫到）</p>
+        ${mapOnly.length ? `<p style="margin:10px 0 6px;font-size:.85rem">地圖上的地名（小說裡沒有寫到）</p>
         <div class="chips">${mapOnly.map((p) => `<button type="button" class="chip chip--muted" data-open="${p.id}" style="cursor:pointer;font:inherit;font-size:.88rem">${QQ.esc(p.name)}</button>`).join('')}</div>` : ''}
       </div>`;
     }).join('');
@@ -120,7 +120,10 @@
       const onKado = QQ.chapters.filter((c) => c.kado);
       const kado = onKado[onKado.length - 1];
       let html = `<h2>${QQ.icon('megaphone')}最近更新</h2><div class="updates__now">`;
-      if (latest) html += `<a class="chip" href="${QQ.chapterHref(latest.no)}">${QQ.icon('book_open')}小說寫到${QQ.chapterLabel(latest.no)}〈${QQ.esc(latest.title)}〉</a>`;
+      // 每一章都寫好了：改成「全書完結」
+      const done = QQ.chapters.every((c) => c.written);
+      if (done) html += `<a class="chip" href="chapters.html">${QQ.icon('book_open')}《墨染櫻雪》全書完結</a>`;
+      else if (latest) html += `<a class="chip" href="${QQ.chapterHref(latest.no)}">${QQ.icon('book_open')}小說寫到${QQ.chapterLabel(latest.no)}〈${QQ.esc(latest.title)}〉</a>`;
       if (kado) html += `<a class="chip" href="https://www.kadokado.com.tw/chapter/${encodeURIComponent(kado.kado)}" target="_blank" rel="noopener">${QQ.icon('star')}KadoKado 上架到${QQ.chapterLabel(kado.no)} ↗</a>`;
       html += '</div>';
       html += `<ul>${(QQ.updates || []).slice(0, 3).map((u) => `<li><time datetime="${QQ.esc(u.date)}">${QQ.esc(u.date)}</time><span>${QQ.esc(u.text)}</span></li>`).join('')}</ul>`;

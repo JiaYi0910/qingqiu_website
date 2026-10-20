@@ -76,7 +76,9 @@
     let lines = '';
     let labels = '';
     let nodes = '';
-    R.edges.forEach((e) => {
+    R.edges.forEach((edge) => {
+      // later：讀到那一章以後，線上的字換成新的（例如師兄妹 → 夫妻）
+      const e = edge.later && QQ.isRead(edge.later.level) ? { ...edge, ...edge.later, level: edge.level, subLevel: 0 } : edge;
       const a = pos[e.from];
       const b = pos[e.to];
       if (!a || !b || !QQ.isRead(e.level || 0)) return;

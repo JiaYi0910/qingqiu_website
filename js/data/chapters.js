@@ -1,6 +1,6 @@
 // 卷和章節
 // 每一章：
-//   no        章號（0 = 序章，99 = 尾聲）
+//   no        章號（0 = 序章，99 = 終章）
 //   title     章名
 //   vol       屬於哪一卷
 //   line      now 現在線（雲野、糯米）／past 過去線（青丘、人間）／both 兩條線都有
@@ -409,29 +409,48 @@ QQ.chapters = [
     image: { src: 'images/scenes/11-not-leaving.webp', caption: '這次我不走了' },
   },
   {
-    no: 35, title: '糯米的符', vol: 'v6', line: 'now', written: false,
-    summary: '墨凌教糯米寫符；一百張符紙的角落，都畫了一隻小狐狸。',
-    places: [],
-    characters: ['nuomi', 'moling'],
+    no: 35, title: '糯米的符', vol: 'v6', line: 'now', written: true,
+    summary: '糯米想回師祖一張平安符，在師父櫃子最深處找到那一百張符，照著當年的朱字學寫符；墨凌半夜在她的符上寫批注，一個字都沒改。',
+    places: [
+      { id: 'zhaozhao-jia', what: '糯米溜進師父的房間，在櫃子最深處找到一個小木盒：兩張紙條、半張平安符，和一百張舊符紙。「我不是跟他學。」「我是跟紙學。」' },
+      { id: 'zhaozhao-jia', spot: '灶房', what: '她每晚照著舊符紙寫到三更；墨凌半夜在她的符上寫下和當年一字不差的朱字。第八天晚上，昭昭說那一百張「一張都沒有丟」；墨凌看著角落的小狐狸，說：「是妳。」' },
+      { id: 'zhaozhao-jia', spot: '墨色櫻花', what: '第九天，她挑出最好的一張要帶給師祖，又掏出另一張端端正正的，拍在正在替櫻花鬆土的墨凌胸口：「這張寫壞了，給你！」' },
+    ],
+    characters: ['nuomi', 'zhaozhao', 'moling'],
   },
   {
-    no: 36, title: '名字', vol: 'v6', line: 'now', written: false,
-    summary: '「別叫師兄了，叫名字。」藏了很多年的話，終於說出口。',
-    places: [],
-    characters: ['zhaozhao', 'moling'],
+    no: 36, title: '名字', vol: 'v6', line: 'now', written: true,
+    summary: '正月十五的燈會，老槐樹下，墨凌說：「別叫師兄了。」她叫了他的名字，兩個人終於說出了藏了一百多年的話。',
+    places: [
+      { id: 'zhaozhao-jia', what: '老狐師父來信：這個月不用回來，年輕人去看燈。最後補了一行：「那棵槐樹還在。」' },
+      { id: 'xingdengxiang', spot: '糖葫蘆攤', what: '老爺爺遞來三串糖葫蘆，看著昭昭，說當年那個說不要當他師妹的笨蛋「長大啦」。' },
+      { id: 'xingdengxiang', what: '人潮把兩個人擠散，一隻涼涼的手握住了她的手：走散了，就這樣走。他沒有放開，她也沒有。' },
+      { id: 'xingdengxiang', spot: '老槐樹', what: '「別叫師兄了。」「……墨凌。」「我喜歡妳。」她抓住他的袖子：「我也喜歡你。」糯米和小妖怪們躲在樹後面，糖葫蘆掉在了地上。' },
+      { id: 'zhaozhao-jia', spot: '西廂與柴房', what: '昭昭在燈攤買了一盞跟當年一模一樣的圓燈籠給他：「這次，換我買給你。」那晚，西廂的窗口多了一盞燈。' },
+    ],
+    characters: ['zhaozhao', 'moling', 'nuomi', 'tanghulu-yeye', 'xiaoyaoguai'],
   },
   {
-    no: 37, title: '櫻樹下', vol: 'v6', line: 'now', written: false,
-    summary: '結親。打開那罈「待好日」的桃花釀；老狐師父大醉，糯米哭得最慘。',
-    places: [],
-    characters: ['zhaozhao', 'moling', 'nuomi', 'laohu'],
+    no: 37, title: '櫻樹下', vol: 'v6', line: 'now', written: true,
+    summary: '墨色的櫻花開了。兩個人在櫻樹下結親，打開那罈「待好日」；老狐師父大醉，糯米哭得最慘，也第一次當面叫了「師祖」。',
+    places: [
+      { id: 'zhaozhao-jia', spot: '墨色櫻花', what: '春天的早上，墨色的櫻花開了，花瓣落下來像雪。昭昭看著墨凌：「……好日。」' },
+      { id: 'zhaozhao-jia', spot: '墨色櫻花', what: '雲野的大家都來了。櫻樹下，她把墨玉簪插回他頭上，在他手腕綁了醜醜的蝴蝶結；老船公第五次問「去哪？」——「哪裡都不去。」「就在這裡。」' },
+      { id: 'zhaozhao-jia', what: '老狐師父打開「待好日」，喝得大醉。糯米替睡著的師祖蓋上羽織，小小聲叫了一聲「師祖」。他沒睜眼：「嗯。」「聽到了。」' },
+    ],
+    characters: ['zhaozhao', 'moling', 'nuomi', 'laohu', 'xiaosong', 'laochuangong', 'abo', 'doufu-laobanniang', 'taolin-dashen', 'tanghulu-yeye', 'xiaoyaoguai'],
     image: { src: 'images/scenes/15-under-sakura.webp', caption: '櫻樹下' },
   },
   {
-    no: 99, title: '第四場雪', vol: 'v6', line: 'now', written: false,
-    summary: '第四場雪，這次沒有人離開。三隻雪狐狸：粉的、黑的，中間一隻小小的米黃色。',
-    places: [],
-    characters: ['zhaozhao', 'moling', 'nuomi'],
+    no: 99, title: '第四場雪', vol: 'v6', line: 'now', written: true,
+    summary: '成親後的第一場雪，這一次誰都沒有走。糯米堆了三隻雪狐狸，把那隻被墨塗掉的黑狐狸，堆了回來。',
+    places: [
+      { id: 'zhaozhao-jia', what: '下雪的早上，墨凌從她的門口掃出一條小路，一直掃到籬笆門。她第一次聽見下雪，一點都不怕。' },
+      { id: 'zhaozhao-jia', what: '糯米堆了三隻雪狐狸：朱砂染的粉狐狸、撒了桂花的米黃色小狐狸，和用墨凌的墨染黑、尾巴繞在身前的那一隻。「我要在中間。」' },
+      { id: 'chuxuepo', spot: '山門與燈', what: '同一場雪裡，小松在山門口掃雪，對著拜月台大喊：「雲野那邊的燈，今天特別亮喔——！」' },
+      { id: 'baiyuetai', what: '一千零八階的最上面，老狐師父往右下角看了很久，笑了笑，下去睡覺了。' },
+    ],
+    characters: ['zhaozhao', 'moling', 'nuomi', 'abo', 'xiaosong', 'laohu'],
     image: { src: 'images/scenes/16-fourth-snow.webp', caption: '第四場雪' },
   },
 ];

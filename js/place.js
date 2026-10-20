@@ -43,7 +43,10 @@
     if ((p.spots || []).length || children.length) {
       html += '<section class="section"><h2>這裡的小地方</h2><div class="spots-grid">';
       (p.spots || []).forEach((s, i) => {
-        const detail = `<p>${QQ.esc(s.text)}</p>${(s.ch || []).length ? `<div class="chips">${s.ch.map((no) => QQ.chapterChip(no, true)).join('')}</div>` : ''}`;
+        // more：後來的章節又寫到這裡，每一段各自照章節上鎖（前面的介紹不會跟著被鎖住）
+        const more = s.more || [];
+        const chs = [...new Set([...(s.ch || []), ...more.filter((m) => QQ.isRead(m.level)).map((m) => m.level)])].sort((a, b) => a - b);
+        const detail = `<p>${QQ.esc(s.text)}</p>${QQ.paras(more)}${chs.length ? `<div class="chips">${chs.map((no) => QQ.chapterChip(no, true)).join('')}</div>` : ''}`;
         html += `<div class="spot-box" id="spot-${i}"><h3>${QQ.esc(s.name)}</h3>${QQ.guard(QQ.maxCh(s.ch), detail)}</div>`;
       });
       children.forEach((c) => {
