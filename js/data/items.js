@@ -72,7 +72,7 @@ QQ.items = [
   },
   {
     id: 'umbrella-old',
-    icon: 'rain',
+    icon: 'zhaozhao_umbrella',
     name: '舊的櫻花紙傘',
     from: '書生自己畫的',
     to: '雨天在書肆屋簷下讓給昭昭',

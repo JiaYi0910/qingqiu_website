@@ -25,7 +25,7 @@ QQ.timeline = [
   },
   {
     title: '人間有雨',
-    icon: 'rain',
+    icon: 'zhaozhao_umbrella',
     line: 'past',
     note: '柳渡鎮、桑溪、杏花村。昭昭在人間和書生過了幾十年。',
     events: [
@@ -110,7 +110,7 @@ QQ.timeline = [
   },
   {
     title: '墨染',
-    icon: 'hearts',
+    icon: 'moling_pat',
     line: 'now',
     note: '後日談。',
     events: [

@@ -80,7 +80,7 @@ QQ.lore = [
   },
   {
     id: 'snow',
-    icon: 'snowflake',
+    icon: 'moling_frost',
     title: '雪',
     intro: '這個故事是用四場雪串起來的。',
     entries: [
@@ -91,7 +91,7 @@ QQ.lore = [
   },
   {
     id: 'rules',
-    icon: 'broom',
+    icon: 'moling_frown',
     title: '師門的規矩和稱呼',
     intro: '初雪坡的日常。',
     entries: [

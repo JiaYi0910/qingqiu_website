@@ -496,6 +496,14 @@ blockquote.quote cite { display: block; font-style: normal; font-size: 0.8rem; c
 .rel-sub { font-size: 12.5px; font-family: var(--serif); fill: var(--sakura-deep); text-anchor: middle; }
 .rel-mark { font-size: 24px; font-family: var(--serif); fill: #fff; text-anchor: middle; }
 
+/* 表情貼 */
+.stickers { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); }
+.stickers li { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 2px; border-radius: 12px; transition: background 0.2s; }
+.stickers li:hover { background: var(--paper-2); }
+.stickers img { width: 72px; height: 72px; object-fit: contain; }
+.stickers span { font-size: 0.78rem; color: var(--ink-soft); }
+@media (max-width: 520px) { .stickers { grid-template-columns: repeat(4, 1fr); } .stickers img { width: 60px; height: 60px; } }
+
 /* 配角小卡 */
 .minor { scroll-margin-top: 80px; border-top: 4px solid var(--c, var(--line)); }
 .minor-pics { display: flex; flex-direction: column; gap: 8px; margin: -2px 0 12px; }
@@ -626,7 +634,9 @@ dialog.lightbox button {
 
 .not-found { text-align: center; margin: 80px 0; }
 .lost { text-align: center; margin: 70px auto; max-width: 520px; }
-.lost__nuomi { width: 128px; height: 128px; margin: 0 auto; }
+.lost__foxes { display: flex; justify-content: center; align-items: flex-end; gap: 4px; }
+.lost__foxes img { width: 96px; height: 96px; }
+.lost__foxes .lost__nuomi { width: 128px; height: 128px; }
 .lost h1 { font-size: 2rem; margin: 12px 0 8px; letter-spacing: 0.12em; }
 .lost p { color: var(--ink-soft); font-family: var(--serif); }
 .lost__actions { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }

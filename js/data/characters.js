@@ -11,6 +11,7 @@
 //   quotes     原文短句 { text, ch }
 //   images     插畫；banner 角色卡最上面的橫幅（可省略）；sheet 角色設定圖（卡片上出現「角色設定圖」按鈕）
 //   places     常出現的地點代號
+//   stickers   表情貼 [檔名, 名稱]（images/icons/ 裡的 GIF），角色卡上會排一排
 //   minor      true = 配角，放在角色頁下面的「其他的人」
 // 「出場章節」不用寫在這裡，會從 chapters.js 自動找出來。
 
@@ -19,7 +20,8 @@ window.QQ = window.QQ || {};
 QQ.characters = [
   {
     id: 'zhaozhao',
-    icon: 'sakura',
+    icon: 'zhaozhao_happy',
+    stickers: [['zhaozhao_happy', '開心'], ['zhaozhao_hi', '嗨'], ['zhaozhao_love', '喜歡'], ['zhaozhao_shy', '害羞'], ['zhaozhao_hug', '抱抱'], ['zhaozhao_good', '讚'], ['zhaozhao_tanghulu', '糖葫蘆'], ['zhaozhao_umbrella', '撐傘'], ['zhaozhao_what', '疑惑'], ['zhaozhao_sleepy', '想睡'], ['zhaozhao_cry', '哭哭'], ['zhaozhao_angry', '生氣']], // 表情貼：[檔名, 名稱]
     name: '昭昭',
     color: '#e48aa5',
     avatar: 'images/characters/zhaozhao-avatar.jpg',
@@ -52,7 +54,8 @@ QQ.characters = [
   },
   {
     id: 'moling',
-    icon: 'snowflake',
+    icon: 'moling_hmm',
+    stickers: [['moling_hmm', '嗯。'], ['moling_frown', '皺眉'], ['moling_blush', '耳朵紅了'], ['moling_smile', '微笑'], ['moling_pat', '摸頭'], ['moling_good', '讚'], ['moling_peach', '桃子'], ['moling_sweep', '掃路'], ['moling_frost', '結霜'], ['moling_bonk', '被敲頭'], ['moling_what', '疑惑'], ['moling_sleepy', '想睡']], // 表情貼：[檔名, 名稱]
     name: '墨凌',
     color: '#2e2b38',
     avatar: 'images/characters/moling-avatar.jpg',
@@ -89,6 +92,7 @@ QQ.characters = [
     id: 'nuomi',
     tails: [[0, 1], [2, 2], [7, 3], [10, 5], [17, 6], [18, 7], [21, 8], [26, 9]], // [第幾章, 幾條尾巴]
     icon: 'nuomi_happy',
+    stickers: [['nuomi_hi', '嗨'], ['nuomi_happy', '開心'], ['nuomi_eat', '吃'], ['nuomi_love', '喜歡'], ['nuomi_shy', '害羞'], ['nuomi_hmph', '哼'], ['nuomi_thanks', '謝謝'], ['nuomi_what', '疑惑'], ['nuomi_scared', '害怕'], ['nuomi_sleepy', '想睡'], ['nuomi_cry', '哭哭'], ['nuomi_angry', '生氣']], // 表情貼：[檔名, 名稱]
     name: '糯米',
     color: '#d9b25f',
     avatar: 'images/characters/nuomi-avatar.jpg',
