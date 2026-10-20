@@ -37,6 +37,14 @@
   QQ.chapter = (no) => (QQ.chapters || []).find((c) => c.no === no);
   QQ.region = (id) => (QQ.regions || {})[id];
 
+  // ---------- 著作權 ----------
+  // 每一頁的頁尾、看大圖的視窗都會顯示；插畫本身另外印了浮水印（tools/to_webp.py --mark）
+  QQ.copyright = {
+    holder: '昭昭⋆.˚✮',
+    short: '© 2026 昭昭⋆.˚✮《墨染櫻雪》',
+    long: '小說文字、角色、插畫、地圖、表情貼與周邊設計的著作權，皆屬作者昭昭⋆.˚✮所有。未經同意，請勿轉載、複製、修改或商業使用。',
+  };
+
   // ---------- 防劇透 ----------
   // 讀者選「讀到第幾章」，比那一章更後面的內容會先藏起來（可以一個一個點開看）。
   // 每段內容的「劇透章節」：章節用 ch，段落／事實用 level；沒寫就是 0（序章就知道的事）。
@@ -244,7 +252,7 @@
   function setupLightbox() {
     const dlg = document.createElement('dialog');
     dlg.className = 'lightbox';
-    dlg.innerHTML = '<button type="button" aria-label="關閉">×</button><img alt=""><p></p>';
+    dlg.innerHTML = `<button type="button" aria-label="關閉">×</button><img alt=""><p></p><small class="lightbox__copy">${QQ.copyright.short}</small>`;
     document.body.appendChild(dlg);
     const img = dlg.querySelector('img');
     const cap = dlg.querySelector('p');
@@ -441,7 +449,10 @@
   function renderLinks() {
     const home = document.getElementById('links');
     if (home) home.innerHTML = linksHtml('ext-links ext-links--big');
-    document.querySelectorAll('.site-footer').forEach((f) => f.insertAdjacentHTML('afterbegin', linksHtml('ext-links')));
+    document.querySelectorAll('.site-footer').forEach((f) => {
+      f.insertAdjacentHTML('afterbegin', linksHtml('ext-links'));
+      f.insertAdjacentHTML('beforeend', `<p class="copyright">${QQ.copyright.short}<br>${QQ.copyright.long}</p>`);
+    });
   }
 
   // ---------- 頁首選單（每一頁共用，要加頁面改這裡） ----------

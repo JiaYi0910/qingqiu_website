@@ -104,6 +104,7 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; letter-spacing
   margin-top: 64px; padding: 28px 0 40px; border-top: 1px solid var(--line);
   color: var(--ink-faint); font-size: 0.85rem; text-align: center;
 }
+.site-footer .copyright { margin: 14px auto 0; max-width: 40em; font-size: 0.78rem; line-height: 1.7; color: var(--ink-faint); }
 
 /* ---------- 小圖示（會動的 GIF） ---------- */
 .icon { display: inline-block; width: 1.4em; height: 1.4em; vertical-align: -0.35em; margin-right: 0.25em; object-fit: contain; }
@@ -831,6 +832,7 @@ dialog.lightbox {
 dialog.lightbox::backdrop { background: rgba(20, 16, 24, 0.82); }
 dialog.lightbox img { max-width: 94vw; max-height: 86vh; border-radius: 10px; margin: auto; }
 dialog.lightbox p { color: #f4ece0; text-align: center; margin: 8px 0 0; font-family: var(--serif); }
+dialog.lightbox .lightbox__copy { display: block; color: rgba(244, 236, 224, 0.7); text-align: center; font-size: 0.78rem; margin-top: 4px; }
 dialog.lightbox button {
   position: fixed; right: 18px; top: 14px; width: 42px; height: 42px; border-radius: 50%;
   border: 0; background: rgba(255, 255, 255, 0.85); font-size: 1.4rem; cursor: pointer;

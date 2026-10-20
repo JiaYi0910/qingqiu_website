@@ -66,7 +66,7 @@ qingqiu_website/
 **小圖示**：資料裡的 `icon: 'lantern'` 就是 `images/icons/lantern.webp`。想換圖示，從 `糯米\表情符號\圖示\會動的`（或 `糯米表情\會動的`）複製一個 GIF 進 `images/icons/`，照下面「放新圖」轉成 WebP，再把 `icon` 改成它的檔名。頁首選單的圖示在 `js/common.js` 的 `QQ.pages`。
 
 **放新圖**：網站的圖都是 WebP（比 JPG / GIF 小一半左右，畫質看不出差別，會動的圖轉完還是會動），手機用行動網路打開比較快。
-新圖放進 `images/` 對應的資料夾後，在網站資料夾執行 `python tools/to_webp.py images/scenes/新的圖.jpg`（要用有 Pillow 的 Python，例如 Anaconda），
+新圖放進 `images/` 對應的資料夾後，在網站資料夾執行 `python tools/to_webp.py --mark images/scenes/新的圖.jpg`（要用有 Pillow 的 Python，例如 Anaconda；`--mark` 會在右下角印上著作權浮水印，小圖示不用加），
 資料裡的路徑寫 `.webp`，確認網頁上看起來沒問題，再把原本的 JPG / GIF 刪掉。
 例外：分享卡片 `images/og/` 要維持 JPG，網站小圖示 `favicon` 維持 PNG（有些 App 不吃 WebP）。
 
@@ -83,6 +83,9 @@ qingqiu_website/
 **首頁的「最近更新」**：寫在 `js/data/updates.js`，新的放最上面，首頁顯示最新三筆。這裡每個人都看得到，不要寫劇情。
 
 **分享卡片**：每一頁 `<head>` 裡的 `og:` 設定，圖片在 `images/og/`（1200×630，只用不劇透的圖）。Discord 會快取卡片，改了以後要過一陣子才會更新。
+
+**著作權**：每一頁的頁尾、看大圖的視窗、`<head>` 裡的 `author` / `copyright` 都標了「© 2026 昭昭⋆.˚✮《墨染櫻雪》」，文字在 `js/common.js` 的 `QQ.copyright`。
+插畫、地圖、周邊、分享卡片和首頁橫幅的右下角都有浮水印（頭像和小圖示太小，不加）；浮水印的字和樣子在 `tools/to_webp.py` 的 `mark()`。
 
 **外部連結**（Discord、KadoKado）：在 `js/common.js` 的 `QQ.links`。首頁地圖上方的按鈕和每一頁的頁尾都會一起改。
 
