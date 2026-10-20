@@ -450,7 +450,6 @@
     { id: 'quotes', group: 'story', label: '名句', icon: 'chat_bubble', href: 'quotes.html' },
     { id: 'items', group: 'world', label: '信物', icon: 'gift', href: 'items.html' },
     { id: 'lore', group: 'world', label: '小百科', icon: 'books', href: 'lore.html' },
-    { id: 'gallery', group: 'art', label: '插畫總覽', icon: 'palette', href: 'gallery.html' },
     { id: 'au', group: 'art', label: '番外・現代校園', icon: 'study', href: 'au.html' },
     { id: 'merch', group: 'art', label: '周邊設計', icon: 'hearts', href: 'merch.html' },
   ];

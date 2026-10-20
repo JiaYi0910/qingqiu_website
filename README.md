@@ -74,7 +74,7 @@ qingqiu_website/
 
 **周邊「想要這個」**：每按一次，GoatCounter 後台會多一筆事件，名稱是 `want-角色-種類`（例如 `want-moling-plush`），在 https://jiayi.goatcounter.com 看。同一台裝置每款只算一次。
 
-**插畫總覽**：自動從各份資料收集圖片，不用另外維護清單。番外的圖在 `js/data/au.js`。
+**番外・現代校園**：圖和標題在 `js/data/au.js`。
 
 **KadoKado 上架新的一章**：在 `js/data/chapters.js` 那一章加上 `kado: 編號`（KadoKado 章節網址 `/chapter/` 後面的數字）。章節頁會多一顆「去 KadoKado 讀這一章」，首頁的「KadoKado 上架到第幾章」也會自動更新。
 

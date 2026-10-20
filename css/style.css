@@ -750,16 +750,6 @@ blockquote.quote cite { display: block; font-style: normal; font-size: 0.8rem; c
 .qcard__who { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: 0.9rem; }
 .qcard__foot .chip { font-size: 0.8rem; }
 
-/* ---------- 插畫總覽 ---------- */
-#gallery-filter button { display: inline-flex; align-items: center; gap: 4px; }
-#gallery-filter .icon { width: 20px; height: 20px; margin: 0; }
-.gallery-all { margin-top: 22px; columns: 4 220px; column-gap: 14px; }
-.gal-item { break-inside: avoid; margin: 0 0 14px; }
-.gal-item[hidden] { display: none; }
-.gal-item img { width: 100%; height: auto; border-radius: 10px; cursor: zoom-in; box-shadow: 0 3px 12px rgba(70, 50, 20, 0.15); }
-.gal-item figcaption { font-size: 0.82rem; color: var(--ink-soft); text-align: center; margin-top: 5px; }
-.gal-item .spoiler--fig .spoiler__btn { aspect-ratio: 4 / 3; }
-
 /* ---------- 番外・現代校園 ---------- */
 .au-note { text-align: center; color: var(--ink-faint); font-size: 0.9rem; margin: 6px 0 0; }
 .au-grid { margin-top: 22px; display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
