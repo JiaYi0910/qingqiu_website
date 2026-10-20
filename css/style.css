@@ -104,7 +104,11 @@ h1, h2, h3, .serif { font-family: var(--serif); font-weight: 700; letter-spacing
   margin-top: 64px; padding: 28px 0 40px; border-top: 1px solid var(--line);
   color: var(--ink-faint); font-size: 0.85rem; text-align: center;
 }
-.site-footer .copyright { margin: 14px auto 0; max-width: 40em; font-size: 0.78rem; line-height: 1.7; color: var(--ink-faint); }
+.site-footer .copyright { margin: 14px auto 0; max-width: 54em; font-size: 0.78rem; line-height: 1.8; color: var(--ink-faint); }
+/* 一句一句當成一塊，只在句子之間換行 */
+.site-footer .copyright span { display: inline-block; }
+.site-footer .copyright .copyright__head { display: block; margin-bottom: 2px; }
+.site-footer .copyright .copyright__line { display: block; }
 
 /* ---------- 小圖示（會動的 GIF） ---------- */
 .icon { display: inline-block; width: 1.4em; height: 1.4em; vertical-align: -0.35em; margin-right: 0.25em; object-fit: contain; }
