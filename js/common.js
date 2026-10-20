@@ -297,6 +297,19 @@
       <div class="map-layer">${links}</div></div></div>`;
   };
 
+  // ---------- 瀏覽人數（GoatCounter） ----------
+  // 在 goatcounter.com 註冊後，把你的 Code 填在這裡（例如 'qingqiu'），後台是 https://qingqiu.goatcounter.com
+  // 不用 cookie、不記個人資料；只在網路上的網站計數，自己電腦上打開不會算。
+  QQ.goatcounter = '';
+  function setupCounter() {
+    if (!QQ.goatcounter || !/github\.io$/.test(location.hostname)) return;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://gc.zgo.at/count.js';
+    s.dataset.goatcounter = `https://${QQ.goatcounter}.goatcounter.com/count`;
+    document.head.appendChild(s);
+  }
+
   // ---------- 外部連結（首頁按鈕和每一頁的頁尾都會出現） ----------
   QQ.links = [
     { label: '加入 Discord', icon: 'nuomi_hi', href: 'https://discord.gg/Cu5AFdTFCa' },
@@ -322,6 +335,8 @@
     { id: 'timeline', label: '時間軸', icon: 'hourglass', href: 'timeline.html' },
     { id: 'items', label: '信物', icon: 'gift', href: 'items.html' },
     { id: 'lore', label: '小百科', icon: 'books', href: 'lore.html' },
+    { id: 'quotes', label: '名句', icon: 'chat_bubble', href: 'quotes.html' },
+    { id: 'merch', label: '周邊', icon: 'hearts', href: 'merch.html' },
   ];
 
   function markNav() {
@@ -344,5 +359,6 @@
     setupLightbox();
     renderLinks();
     setupProgress();
+    setupCounter();
   });
 })();

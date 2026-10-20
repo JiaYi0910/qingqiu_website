@@ -43,7 +43,7 @@ QQ.characters = [
       { level: 25, text: '化形以後，她下山去人間歷練，在柳渡鎮遇見把傘讓給她的書生，在人間過了幾十年。書生走後，她一個人在南邊的櫻林看了九十年的櫻花，刻意避開青丘的北方。' },
       { level: 5, text: '直到一場近百年最大的風雪，她撐著那把舊傘回到初雪坡，在雪窩裡撿到糯米，帶她去了雲野。她對糯米說的話，常常是當年墨凌對她說的，說出口，自己會愣一下。' },
     ],
-    quotes: [{ text: '……師兄，你來得好慢。', ch: 29 }],
+    quotes: [{ text: '……師兄。」「你來得好慢。', ch: 29 }],
     images: [
       { src: 'images/characters/zhaozhao-fox.jpg', caption: '昭昭・狐狸的樣子' },
       { src: 'images/characters/couple-lantern-night-34.jpg', spoiler: 29, full: 'images/characters/couple-lantern-night.jpg', caption: '燈籠夜' },

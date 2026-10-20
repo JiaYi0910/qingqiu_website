@@ -1,0 +1,44 @@
+// 名句集：照章節順序
+// who 說話的人（角色代號）、as 特別的說法（例如「刻在石階上」，可省略）、ch 出處章節、
+// text 原文（一字不差；中間有停頓的寫成「……師兄。」「你來得好慢。」）、note 當時的場景
+// 防劇透：讀者還沒讀到 ch 的句子，整張卡片會先藏起來。
+
+window.QQ = window.QQ || {};
+
+QQ.quotes = [
+  { who: 'laochuangong', ch: 0, text: '那就去雲野微風吧。', note: '昭昭說，青丘太冷了，這孩子不該在這樣的雪裡長大。' },
+  { who: 'zhaozhao', ch: 0, text: '以後，這裡就是我們的家了。', note: '雲的盡頭，第一次踏上雲野的草野。' },
+  { who: 'nuomi', ch: 2, text: '……肚子餓。', note: '長出第二條尾巴，開口說的第一句話。' },
+  { who: 'zhaozhao', ch: 2, text: '這樣以後誰晚回來，都看得到路。', note: '燈會回來，把燈掛在山門的屋簷下。' },
+  { who: 'zhaozhao', ch: 2, text: '那我不要當你師妹。', note: '燈會那晚，星燈巷的老槐樹下。' },
+  { who: 'moling', as: '墨凌（竹籃底下的紙條）', ch: 3, text: '拿去給師父。不准說是我摘的。', note: '石磬峽崖頂的秋桃。' },
+  { who: 'moling', ch: 6, text: '等妳長出九條尾巴，我帶妳去看青丘外面的世界。', note: '月圓夜，拜月台上。' },
+  { who: 'moling', ch: 6, text: '到時候，如果妳……', note: '話只說了一半。' },
+  { who: 'moling', ch: 7, text: '我會在。', note: '雷雨夜，墨色的袖子裡。' },
+  { who: 'moling', ch: 8, text: '……還是很笨的樣子。', note: '雷劫台上，石欄捏出了五道裂痕。' },
+  { who: 'shusheng', ch: 9, text: '聽起來有點寂寞。', note: '他從來沒有看過雪。' },
+  { who: 'gaodian-daniang', ch: 10, text: '好吃的東西，都是等出來的。', note: '柳渡鎮糕點鋪的灶房。' },
+  { who: 'nuomi', ch: 11, text: '所以我很吵！這樣就不會寂寞了！', note: '雲野第一次下雪。' },
+  { who: 'zhaozhao', ch: 12, text: '你從來只會替我決定！', note: '柳渡鎮的河邊，雨裡。' },
+  { who: 'moling', as: '墨凌（刻在第四十三階）', ch: 13, text: '她爬到這裡，就爬不動了。', note: '旁邊畫著一隻一條尾巴的小狐狸。' },
+  { who: 'shusheng', ch: 16, text: '別怕，有我在。', note: '第一次帶她回桑溪見娘。' },
+  { who: 'shusheng', ch: 20, text: '比我畫的，好看多了。', note: '第一次看見真的櫻花。' },
+  { who: 'shusheng', ch: 20, text: '不要回頭。', note: '山路的岔口。' },
+  { who: 'zhaozhao', ch: 24, text: '糯米，別怕，師父在這裡。', note: '後山寒潭，糯米的心魔。' },
+  { who: 'nuomi', ch: 25, text: '師父，別怕！糯米在這裡！', note: '這一次，換糯米護法。' },
+  { who: 'zhaozhao', ch: 25, text: '換我在這裡等。', note: '心魔裡，坐在第四十三階的刻字旁邊。' },
+  { who: 'shusheng', as: '書生（刻在傘柄上）', ch: 25, text: '下雪的時候，也要撐傘。', note: '他畫的最後一把櫻花傘。' },
+  { who: 'moling', as: '墨凌（墨色的信）', ch: 27, text: '燈會亮著。', note: '一百二十七年沒拆的信。' },
+  { who: 'zhaozhao', ch: 27, text: '要。', note: '雷劫前夜，第四十三階。' },
+  { who: 'moling', ch: 29, text: '我來接妳了。', note: '第三場雪，雲野的籬笆門外。' },
+  { who: 'zhaozhao', ch: 29, text: '……師兄。」「你來得好慢。', note: '第一次當面這樣叫他。' },
+  { who: 'nuomi', ch: 29, text: '這個黑漆漆的是誰！', note: '光著腳衝出來，擋在師父前面。' },
+  { who: 'nuomi', ch: 31, text: '我以後一定比你還厲害！', note: '鏡湖邊，指著他的鼻子。' },
+  { who: 'moling', ch: 31, text: '我等妳。', note: '他的嘴角，往上動了一點點。' },
+  { who: 'nuomi', ch: 31, text: '叫了，就好像，原諒你了！', note: '不肯叫他名字的原因。' },
+  { who: 'laohu', ch: 33, text: '回來啦。', note: '山門的燈下。' },
+  { who: 'moling', ch: 33, text: '我想牽。', note: '他走回第四十三階，把手伸給她。' },
+  { who: 'moling', ch: 34, text: '……那妳想怎麼做？', note: '舊脾氣又犯了，這次他停下來問。' },
+  { who: 'moling', ch: 34, text: '這次我不走了。', note: '雪夜，山門口。' },
+  { who: 'laohu', ch: 34, text: '亮著，老夫就下去睡。', note: '拜月台上，往右下角看。' },
+];
