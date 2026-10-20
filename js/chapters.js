@@ -16,6 +16,10 @@
     if (placeIds.length) detail += `<div class="chips">${placeIds.map(QQ.placeChip).join('')}</div>`;
     // 還沒讀到的章節：章名留著，重點和地點先藏起來
     html += QQ.guard(ch.no, detail, 'block', todo ? '還沒寫的章節大綱' : '你還沒讀到這一章');
+    // 已經在 KadoKado 上架的章節：去讀這一章（不算劇透，所以放在鎖外面）
+    if (ch.kado) {
+      html += `<a class="read-btn" href="https://www.kadokado.com.tw/chapter/${encodeURIComponent(ch.kado)}" target="_blank" rel="noopener">${QQ.icon('book_open')}去 KadoKado 讀這一章 ↗</a>`;
+    }
     html += '</div></li>';
     return html;
   }

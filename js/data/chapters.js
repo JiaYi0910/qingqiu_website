@@ -9,6 +9,7 @@
 //   characters 出場角色的代號
 //   written   寫好了沒有
 //   image     章節插畫（可省略）
+//   kado      KadoKado 上這一章的編號（網址 https://www.kadokado.com.tw/chapter/編號），上架後再補
 
 window.QQ = window.QQ || {};
 
@@ -24,7 +25,7 @@ QQ.volumes = [
 
 QQ.chapters = [
   {
-    no: 0, title: '雪地裡的小毛球', vol: 'v0', line: 'now', written: true,
+    no: 0, title: '雪地裡的小毛球', vol: 'v0', line: 'now', written: true, kado: 958160,
     summary: '第二場雪。昭昭回到初雪坡，在坡下的雪窩裡撿到糯米，帶她搭老船公的雲去了雲野。',
     places: [
       { id: 'chuxuepo', spot: '坡下的雪窩', what: '大雪裡回到山門外，聽掃雪的小狐狸說師祖每年都叫人在石階中間留一條路；下坡時，在背風的雪窩裡撿到縮成一團的糯米。' },
@@ -39,7 +40,7 @@ QQ.chapters = [
 
   // ── 卷一〈初雪〉 ──
   {
-    no: 1, title: '最笨的徒弟', vol: 'v1', line: 'past', written: true,
+    no: 1, title: '最笨的徒弟', vol: 'v1', line: 'past', written: true, kado: 958172,
     summary: '拜師那年，小昭昭爬到第四十三階就爬不動了，第一次見到墨凌；老狐師父替她取名「昭昭」。',
     places: [
       { id: 'nanbian-yinglin', what: '老狐師父把還沒有名字的小狐狸揣進袖子，從這裡帶回初雪坡。' },
@@ -51,7 +52,7 @@ QQ.chapters = [
     image: { src: 'images/scenes/03-step-43.jpg', caption: '第四十三階' },
   },
   {
-    no: 2, title: '第一句話', vol: 'v1', line: 'both', written: true,
+    no: 2, title: '第一句話', vol: 'v1', line: 'both', written: true, kado: 958542,
     summary: '糯米長出第二條尾巴，開口第一句卻是「肚子餓」。昭昭從來不叫墨凌「師兄」；燈會那晚，她在星燈巷走丟了。',
     places: [
       { id: 'zhaozhao-jia', spot: '桂花樹', what: '第一百天，糯米長出第二條尾巴，在桂花樹下開口：「……肚子餓。」' },
@@ -62,7 +63,7 @@ QQ.chapters = [
     image: { src: 'images/scenes/06-lantern-fair.jpg', caption: '星燈巷燈會' },
   },
   {
-    no: 3, title: '師兄的規矩', vol: 'v1', line: 'both', written: true,
+    no: 3, title: '師兄的規矩', vol: 'v1', line: 'both', written: true, kado: 958640,
     summary: '墨凌的規矩多到三百條。昭昭打破師父埋了一百年的桃花釀，墨凌替她頂罪，又偷偷去石磬峽摘秋桃。',
     places: [
       { id: 'chuxuepo', spot: '師門庭院', what: '追松鼠闖進松樹下的酒窖，打破了桃花釀；師父用秋桃重釀，埋回松樹下，貼上「待好日」。' },
@@ -74,7 +75,7 @@ QQ.chapters = [
     image: { src: 'images/scenes/07-mending-cushion.jpg', caption: '補坐墊' },
   },
   {
-    no: 4, title: '打瞌睡的吐納課', vol: 'v1', line: 'both', written: true,
+    no: 4, title: '打瞌睡的吐納課', vol: 'v1', line: 'both', written: true, kado: 958737,
     summary: '糯米上吐納課睡著了，昭昭替她披上櫻花色的羽織。這個習慣，是學墨凌的。',
     places: [
       { id: 'zhaozhao-jia', what: '清晨在院子的青石板上教糯米吐納，她睡著了；夜裡，昭昭一個人坐在廊下望向北方。' },
@@ -84,7 +85,7 @@ QQ.chapters = [
     image: { src: 'images/scenes/02-dozing-lesson.jpg', caption: '打瞌睡的吐納課' },
   },
   {
-    no: 5, title: '油豆腐之戀', vol: 'v1', line: 'now', written: true,
+    no: 5, title: '油豆腐之戀', vol: 'v1', line: 'now', written: true, kado: 958747,
     summary: '昭昭第一次帶糯米去星燈巷。豆腐坊請糯米吃了七塊油豆腐；賣糖葫蘆的老狐妖，卻認出了昭昭。',
     places: [
       { id: 'zhaozhao-jia', what: '家裡的朱砂用完了，昭昭猶豫了三天。' },
@@ -95,7 +96,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'laochuangong', 'doufu-laobanniang', 'tanghulu-yeye'],
   },
   {
-    no: 6, title: '拜月台上的約定', vol: 'v1', line: 'both', written: true,
+    no: 6, title: '拜月台上的約定', vol: 'v1', line: 'both', written: true, kado: 958764,
     summary: '長出第六條尾巴那年，墨凌帶昭昭上拜月台：「等妳長出九條尾巴，我帶妳去看青丘外面的世界。」「到時候，如果妳……」話只說了一半。',
     places: [
       { id: 'chuxuepo', what: '送走第五個師姊那天，昭昭坐在山門前的石階上數自己的尾巴。' },

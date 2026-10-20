@@ -62,6 +62,12 @@ qingqiu_website/
 
 **小圖示**：資料裡的 `icon: 'lantern'` 就是 `images/icons/lantern.gif`。想換圖示，從 `糯米\表情符號\圖示\會動的`（或 `糯米表情\會動的`）複製一個 GIF 進 `images/icons/`，再把 `icon` 改成它的檔名。頁首選單的圖示在 `js/common.js` 的 `QQ.pages`。
 
+**KadoKado 上架新的一章**：在 `js/data/chapters.js` 那一章加上 `kado: 編號`（KadoKado 章節網址 `/chapter/` 後面的數字）。章節頁會多一顆「去 KadoKado 讀這一章」，首頁的「KadoKado 上架到第幾章」也會自動更新。
+
+**首頁的「最近更新」**：寫在 `js/data/updates.js`，新的放最上面，首頁顯示最新三筆。這裡每個人都看得到，不要寫劇情。
+
+**分享卡片**：每一頁 `<head>` 裡的 `og:` 設定，圖片在 `images/og/`（1200×630，只用不劇透的圖）。Discord 會快取卡片，改了以後要過一陣子才會更新。
+
 **外部連結**（Discord、KadoKado）：在 `js/common.js` 的 `QQ.links`。首頁地圖上方的按鈕和每一頁的頁尾都會一起改。
 
 ## 地圖生成指令

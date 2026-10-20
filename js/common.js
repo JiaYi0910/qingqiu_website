@@ -160,7 +160,7 @@
 
     // 第一次來：頁面最上面問一次（放在 main 前面，頁面重畫 main 時才不會被蓋掉）
     const main = document.querySelector('main');
-    if (QQ.progress === null && main) {
+    if (QQ.progress === null && main && !('noProgress' in document.body.dataset)) {
       main.insertAdjacentHTML('beforebegin', `<section class="wrap progress-banner" aria-label="防劇透">
         ${QQ.icon('nuomi_what', 'icon--big')}
         <div class="progress-banner__text"><strong>怕被劇透嗎？</strong>選你讀到哪一章，後面的內容會先藏起來。沒選之前，只會顯示序章的內容。</div>

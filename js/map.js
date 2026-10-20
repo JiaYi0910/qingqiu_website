@@ -112,6 +112,21 @@
     card.querySelector('.spot-card__close').addEventListener('click', close);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !card.hidden) close(); });
 
+    // 最近更新：寫到第幾章、KadoKado 上架到第幾章（自動算），加上 updates.js 的最新三筆
+    const upd = document.getElementById('updates');
+    if (upd) {
+      const written = QQ.chapters.filter((c) => c.written);
+      const latest = written[written.length - 1];
+      const onKado = QQ.chapters.filter((c) => c.kado);
+      const kado = onKado[onKado.length - 1];
+      let html = `<h2>${QQ.icon('megaphone')}最近更新</h2><div class="updates__now">`;
+      if (latest) html += `<a class="chip" href="${QQ.chapterHref(latest.no)}">${QQ.icon('book_open')}小說寫到${QQ.chapterLabel(latest.no)}〈${QQ.esc(latest.title)}〉</a>`;
+      if (kado) html += `<a class="chip" href="https://www.kadokado.com.tw/chapter/${encodeURIComponent(kado.kado)}" target="_blank" rel="noopener">${QQ.icon('star')}KadoKado 上架到${QQ.chapterLabel(kado.no)} ↗</a>`;
+      html += '</div>';
+      html += `<ul>${(QQ.updates || []).slice(0, 3).map((u) => `<li><time datetime="${QQ.esc(u.date)}">${QQ.esc(u.date)}</time><span>${QQ.esc(u.text)}</span></li>`).join('')}</ul>`;
+      upd.innerHTML = html;
+    }
+
     // 兩張小地圖：人間、初雪坡師門（師門圖的小地方會連到初雪坡頁）
     const mini = document.getElementById('mini-maps');
     if (mini) {
