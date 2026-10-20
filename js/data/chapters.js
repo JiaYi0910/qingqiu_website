@@ -49,7 +49,7 @@ QQ.chapters = [
       { id: 'zhaozhao-jia', what: '（現在）夜裡坐在熟睡的糯米床邊，想起初雪坡那道石階。' },
     ],
     characters: ['zhaozhao', 'moling', 'laohu', 'nuomi'],
-    image: { src: 'images/scenes/03-step-43.jpg', caption: '第四十三階' },
+    image: { src: 'images/scenes/03-step-43.webp', caption: '第四十三階' },
   },
   {
     no: 2, title: '第一句話', vol: 'v1', line: 'both', written: true, kado: 958542,
@@ -60,7 +60,7 @@ QQ.chapters = [
       { id: 'chuxuepo', spot: '山門與燈', what: '回山以後，她把墨凌買給她的燈掛在山門屋簷下：「這樣以後誰晚回來，都看得到路。」' },
     ],
     characters: ['zhaozhao', 'nuomi', 'moling', 'laohu'],
-    image: { src: 'images/scenes/06-lantern-fair.jpg', caption: '星燈巷燈會' },
+    image: { src: 'images/scenes/06-lantern-fair.webp', caption: '星燈巷燈會' },
   },
   {
     no: 3, title: '師兄的規矩', vol: 'v1', line: 'both', written: true, kado: 958640,
@@ -72,7 +72,7 @@ QQ.chapters = [
       { id: 'zhaozhao-jia', spot: '桃樹', what: '（現在）糯米爬上院子裡最高的桃樹，掉下來被昭昭接住。' },
     ],
     characters: ['zhaozhao', 'moling', 'laohu', 'sanshijie', 'nuomi'],
-    image: { src: 'images/scenes/07-mending-cushion.jpg', caption: '補坐墊' },
+    image: { src: 'images/scenes/07-mending-cushion.webp', caption: '補坐墊' },
   },
   {
     no: 4, title: '打瞌睡的吐納課', vol: 'v1', line: 'both', written: true, kado: 958737,
@@ -82,7 +82,7 @@ QQ.chapters = [
       { id: 'chuxuepo', spot: '後院', what: '拜師第二年春天，卯時的吐納課，墨凌把墨色外衣蓋在打瞌睡的她身上，跟師父說她在「很深的冥想」。' },
     ],
     characters: ['zhaozhao', 'nuomi', 'moling', 'laohu'],
-    image: { src: 'images/scenes/02-dozing-lesson.jpg', caption: '打瞌睡的吐納課' },
+    image: { src: 'images/scenes/02-dozing-lesson.webp', caption: '打瞌睡的吐納課' },
   },
   {
     no: 5, title: '油豆腐之戀', vol: 'v1', line: 'now', written: true, kado: 958747,
@@ -104,7 +104,7 @@ QQ.chapters = [
       { id: 'zhaozhao-jia', what: '（現在）糯米趴在屋頂上，昭昭把那句約定完整地說給她聽。' },
     ],
     characters: ['zhaozhao', 'moling', 'laohu', 'sanshijie', 'nuomi'],
-    image: { src: 'images/scenes/04-moon-terrace-promise.jpg', caption: '拜月台的約定' },
+    image: { src: 'images/scenes/04-moon-terrace-promise.webp', caption: '拜月台的約定' },
   },
 
   // ── 卷二〈人間有雨〉 ──
@@ -116,7 +116,7 @@ QQ.chapters = [
       { id: 'chuxuepo', spot: '東廂', what: '拜師第一年夏天，小昭昭沿著迴廊跑到東廂最後一間，鑽進墨凌的袖子。' },
     ],
     characters: ['zhaozhao', 'nuomi', 'moling', 'laohu', 'laochuangong'],
-    image: { src: 'images/scenes/01-thunder-night.jpg', caption: '雷雨夜' },
+    image: { src: 'images/scenes/01-thunder-night.webp', caption: '雷雨夜' },
   },
   {
     no: 8, title: '下山歷練', vol: 'v2', line: 'past', written: true,
@@ -340,7 +340,7 @@ QQ.chapters = [
       { id: 'beifang-bingyuan', what: '比青丘還要北的地方，不是冬天，卻下了一整夜的雪。' },
     ],
     characters: ['nuomi', 'zhaozhao', 'laohu', 'xiaosong', 'laochuangong', 'taolin-dashen', 'doufu-laobanniang', 'tanghulu-yeye', 'xiaoyaoguai', 'moling'],
-    image: { src: 'images/scenes/17-transformation.jpg', caption: '化形' },
+    image: { src: 'images/scenes/17-transformation.webp', caption: '化形' },
   },
   {
     no: 29, title: '第三場雪', vol: 'v5', line: 'now', written: true,
@@ -350,7 +350,7 @@ QQ.chapters = [
       { id: 'zhaozhao-jia', spot: '籬笆門與燈', what: '墨凌站在籬笆門外的雪裡；昭昭第一次當面叫他師兄，替他撐傘；糯米光著腳衝出來，擋在他前面。' },
     ],
     characters: ['zhaozhao', 'moling', 'nuomi'],
-    image: { src: 'images/scenes/09-third-snow.jpg', caption: '第三場雪' },
+    image: { src: 'images/scenes/09-third-snow.webp', caption: '第三場雪' },
   },
 
   // ── 卷六〈墨染〉 ──
@@ -394,7 +394,7 @@ QQ.chapters = [
       { id: 'chuxuepo', spot: '山門與燈', what: '老狐師父在燈下說「回來啦」，用掃帚柄敲他的頭；小松哭著衝出來。' },
     ],
     characters: ['zhaozhao', 'moling', 'nuomi', 'laohu', 'xiaosong', 'laochuangong'],
-    image: { src: 'images/scenes/10-ninety-nine-steps.jpg', caption: '九十九階' },
+    image: { src: 'images/scenes/10-ninety-nine-steps.webp', caption: '九十九階' },
   },
   {
     no: 34, title: '舊脾氣', vol: 'v6', line: 'now', written: true,
@@ -406,7 +406,7 @@ QQ.chapters = [
       { id: 'zhaozhao-jia', spot: '籬笆門與燈', what: '回到雲野，墨色櫻花長出第三片葉子；昭昭把院門口的燈芯撥高了一點。' },
     ],
     characters: ['zhaozhao', 'moling', 'laohu', 'xiaosong', 'nuomi', 'abo'],
-    image: { src: 'images/scenes/11-not-leaving.jpg', caption: '這次我不走了' },
+    image: { src: 'images/scenes/11-not-leaving.webp', caption: '這次我不走了' },
   },
   {
     no: 35, title: '糯米的符', vol: 'v6', line: 'now', written: false,
@@ -425,13 +425,13 @@ QQ.chapters = [
     summary: '結親。打開那罈「待好日」的桃花釀；老狐師父大醉，糯米哭得最慘。',
     places: [],
     characters: ['zhaozhao', 'moling', 'nuomi', 'laohu'],
-    image: { src: 'images/scenes/15-under-sakura.jpg', caption: '櫻樹下' },
+    image: { src: 'images/scenes/15-under-sakura.webp', caption: '櫻樹下' },
   },
   {
     no: 99, title: '第四場雪', vol: 'v6', line: 'now', written: false,
     summary: '第四場雪，這次沒有人離開。三隻雪狐狸：粉的、黑的，中間一隻小小的米黃色。',
     places: [],
     characters: ['zhaozhao', 'moling', 'nuomi'],
-    image: { src: 'images/scenes/16-fourth-snow.jpg', caption: '第四場雪' },
+    image: { src: 'images/scenes/16-fourth-snow.webp', caption: '第四場雪' },
   },
 ];

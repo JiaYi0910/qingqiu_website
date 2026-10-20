@@ -46,7 +46,7 @@
     inner += '</div></div>';
     if ((c.stickers || []).length) {
       inner += `<h3>表情貼</h3><ul class="stickers">${c.stickers.map(([file, name]) =>
-        `<li><img src="images/icons/${QQ.esc(file)}.gif" alt="${QQ.esc(name)}" title="${QQ.esc(name)}" loading="lazy" width="72" height="72"><span>${QQ.esc(name)}</span></li>`).join('')}</ul>`;
+        `<li><img src="images/icons/${QQ.esc(file)}.webp" alt="${QQ.esc(name)}" title="${QQ.esc(name)}" loading="lazy" width="72" height="72"><span>${QQ.esc(name)}</span></li>`).join('')}</ul>`;
     }
     if ((c.images || []).length) {
       inner += `<h3>插畫</h3><div class="gallery">${c.images.map((im) => QQ.figureHtml(im, true)).join('')}</div>`;

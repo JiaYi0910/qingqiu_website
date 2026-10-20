@@ -34,8 +34,9 @@ qingqiu_website/
 │  ├─ place.js         地點頁
 │  ├─ characters.js    角色頁
 │  └─ chapters.js      章節頁
-└─ images/             從「墨染櫻雪插畫」複製出來的縮小版（原檔沒動）
-   └─ icons/           小圖示：從「糯米\表情符號」複製的會動 GIF（原檔沒動）
+├─ images/             從「墨染櫻雪插畫」複製出來的縮小版，轉成 WebP（原檔沒動）
+│  └─ icons/           小圖示：從「糯米\表情符號」複製的會動 GIF，轉成會動的 WebP（原檔沒動）
+└─ tools/to_webp.py    把新圖轉成 WebP 的小工具
 ```
 
 ## 常做的事
@@ -60,7 +61,12 @@ qingqiu_website/
 
 **風景圖和小地圖**：地點的風景圖在 `images/places/`（`places.js` 的 `art`）；師門圖和人間地圖在 `images/map/`，可以點的位置在 `js/data/map.js` 的 `QQ.subMaps`。生成指令在 `docs/地點插畫與地圖指令.md`。
 
-**小圖示**：資料裡的 `icon: 'lantern'` 就是 `images/icons/lantern.gif`。想換圖示，從 `糯米\表情符號\圖示\會動的`（或 `糯米表情\會動的`）複製一個 GIF 進 `images/icons/`，再把 `icon` 改成它的檔名。頁首選單的圖示在 `js/common.js` 的 `QQ.pages`。
+**小圖示**：資料裡的 `icon: 'lantern'` 就是 `images/icons/lantern.webp`。想換圖示，從 `糯米\表情符號\圖示\會動的`（或 `糯米表情\會動的`）複製一個 GIF 進 `images/icons/`，照下面「放新圖」轉成 WebP，再把 `icon` 改成它的檔名。頁首選單的圖示在 `js/common.js` 的 `QQ.pages`。
+
+**放新圖**：網站的圖都是 WebP（比 JPG / GIF 小一半左右，畫質看不出差別，會動的圖轉完還是會動），手機用行動網路打開比較快。
+新圖放進 `images/` 對應的資料夾後，在網站資料夾執行 `python tools/to_webp.py images/scenes/新的圖.jpg`（要用有 Pillow 的 Python，例如 Anaconda），
+資料裡的路徑寫 `.webp`，確認網頁上看起來沒問題，再把原本的 JPG / GIF 刪掉。
+例外：分享卡片 `images/og/` 要維持 JPG，網站小圖示 `favicon` 維持 PNG（有些 App 不吃 WebP）。
 
 **頁首選單**：在 `js/common.js` 的 `QQ.pages`。有 `group` 的會收進「故事／世界／畫廊」下拉選單（`QQ.navGroups`），加新頁面時盡量放進群組，標題列才不會變長。
 

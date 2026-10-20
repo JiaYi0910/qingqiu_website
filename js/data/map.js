@@ -6,7 +6,7 @@
 window.QQ = window.QQ || {};
 
 QQ.map = {
-  image: 'images/map/qingqiu-map.jpg',
+  image: 'images/map/qingqiu-map.webp',
   width: 1536,
   height: 1024,
   hotspots: [
@@ -59,7 +59,7 @@ QQ.map = {
 QQ.subMaps = {
   shimen: {
     title: '初雪坡・師門圖',
-    image: 'images/map/shimen-map.jpg',
+    image: 'images/map/shimen-map.webp',
     width: 752,
     height: 1024,
     hotspots: [
@@ -80,7 +80,7 @@ QQ.subMaps = {
   },
   renjian: {
     title: '人間地圖',
-    image: 'images/map/renjian-map.jpg',
+    image: 'images/map/renjian-map.webp',
     width: 752,
     height: 1024,
     hotspots: [

@@ -25,10 +25,10 @@
 
   QQ.param = (name) => new URLSearchParams(location.search).get(name);
 
-  // 小圖示（images/icons/ 裡會動的 GIF，從糯米的表情符號資料夾複製來的）
+  // 小圖示（images/icons/ 裡會動的圖：從糯米的表情符號資料夾複製 GIF，再轉成比較小的 WebP，一樣會動）
   QQ.icon = function (name, cls) {
     if (!name) return '';
-    return `<img class="icon${cls ? ' ' + cls : ''}" src="images/icons/${name}.gif" alt="" aria-hidden="true">`;
+    return `<img class="icon${cls ? ' ' + cls : ''}" src="images/icons/${name}.webp" alt="" aria-hidden="true">`;
   };
 
   // ---------- 找資料 ----------
@@ -458,7 +458,7 @@
   // 頁首的站名：小櫻花＋「墨染」墨色、「櫻雪」櫻粉＋「青丘地圖」印章（每一頁共用，改這裡就好）
   function renderBrand() {
     document.querySelectorAll('.site-header .brand').forEach((b) => {
-      b.innerHTML = `<img class="brand-mark" src="images/icons/sakura.gif" alt="">
+      b.innerHTML = `<img class="brand-mark" src="images/icons/sakura.webp" alt="">
         <span class="brand-title"><span class="brand-ink">墨染</span><span class="brand-sakura">櫻雪</span></span>
         <span class="brand-seal" aria-label="青丘地圖"><span>青丘</span><span>地圖</span></span>`;
       b.setAttribute('aria-label', '墨染櫻雪・青丘地圖（回首頁）');

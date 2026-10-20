@@ -29,7 +29,7 @@ QQ.items = [
     ch: [1, 9, 10, 13],
     places: ['chuxuepo', 'zhaozhao-jia'],
     people: ['zhaozhao', 'moling'],
-    image: { src: 'images/scenes/08-writing-talismans.jpg', caption: '寫符紙' },
+    image: { src: 'images/scenes/08-writing-talismans.webp', caption: '寫符紙' },
   },
   {
     id: 'cushion',
@@ -42,7 +42,7 @@ QQ.items = [
     ch: [3, 22],
     places: ['chuxuepo'],
     people: ['moling', 'zhaozhao'],
-    image: { src: 'images/scenes/07-mending-cushion.jpg', caption: '補坐墊' },
+    image: { src: 'images/scenes/07-mending-cushion.webp', caption: '補坐墊' },
   },
   {
     id: 'peach-wine',
@@ -106,7 +106,7 @@ QQ.items = [
     ch: [6, 12, 13, 14, 18, 21, 23, 24, 26, 27, 29],
     places: ['chuxuepo', 'zhaozhao-jia'],
     people: ['moling', 'zhaozhao'],
-    image: { src: 'images/scenes/12-ink-jade-hairpin.jpg', caption: '墨玉簪' },
+    image: { src: 'images/scenes/12-ink-jade-hairpin.webp', caption: '墨玉簪' },
   },
   {
     id: 'letter',
@@ -145,7 +145,7 @@ QQ.items = [
     ch: [17, 26, 28],
     places: ['zhaozhao-jia', 'leijietai'],
     people: ['zhaozhao', 'nuomi'],
-    image: { src: 'images/scenes/17-transformation.jpg', caption: '化形' },
+    image: { src: 'images/scenes/17-transformation.webp', caption: '化形' },
   },
   {
     id: 'enemy-list',
@@ -183,6 +183,6 @@ QQ.items = [
     ch: [32, 33, 34],
     places: ['beifang-bingyuan', 'zhaozhao-jia'],
     people: ['moling', 'zhaozhao', 'nuomi'],
-    image: { src: 'images/scenes/15-under-sakura.jpg', caption: '櫻樹下' },
+    image: { src: 'images/scenes/15-under-sakura.webp', caption: '櫻樹下' },
   },
 ];

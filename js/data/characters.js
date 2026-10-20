@@ -11,7 +11,7 @@
 //   quotes     原文短句 { text, ch }
 //   images     插畫；banner 角色卡最上面的橫幅（可省略）；sheet 角色設定圖（卡片上出現「角色設定圖」按鈕）
 //   places     常出現的地點代號
-//   stickers   表情貼 [檔名, 名稱]（images/icons/ 裡的 GIF），角色卡上會排一排
+//   stickers   表情貼 [檔名, 名稱]（images/icons/ 裡會動的 .webp），角色卡上會排一排
 //   minor      true = 配角，放在角色頁下面的「其他的人」
 // 「出場章節」不用寫在這裡，會從 chapters.js 自動找出來。
 
@@ -24,10 +24,10 @@ QQ.characters = [
     stickers: [['zhaozhao_happy', '開心'], ['zhaozhao_hi', '嗨'], ['zhaozhao_love', '喜歡'], ['zhaozhao_shy', '害羞'], ['zhaozhao_hug', '抱抱'], ['zhaozhao_good', '讚'], ['zhaozhao_tanghulu', '糖葫蘆'], ['zhaozhao_umbrella', '撐傘'], ['zhaozhao_what', '疑惑'], ['zhaozhao_sleepy', '想睡'], ['zhaozhao_cry', '哭哭'], ['zhaozhao_angry', '生氣']], // 表情貼：[檔名, 名稱]
     name: '昭昭',
     color: '#e48aa5',
-    avatar: 'images/characters/zhaozhao-avatar.jpg',
-    portrait: { src: 'images/characters/zhaozhao-full-34.jpg', full: 'images/characters/zhaozhao-full.jpg', caption: '昭昭' },
-    banner: { src: 'images/characters/zhaozhao-banner.jpg', caption: '昭昭' },
-    sheet: { src: 'images/characters/zhaozhao-sheet.jpg' }, // 角色設定圖（卡片上的按鈕）
+    avatar: 'images/characters/zhaozhao-avatar.webp',
+    portrait: { src: 'images/characters/zhaozhao-full-34.webp', full: 'images/characters/zhaozhao-full.webp', caption: '昭昭' },
+    banner: { src: 'images/characters/zhaozhao-banner.webp', caption: '昭昭' },
+    sheet: { src: 'images/characters/zhaozhao-sheet.webp' }, // 角色設定圖（卡片上的按鈕）
     tagline: '櫻粉色的九尾狐。笑意盈盈，身上帶著櫻花的香氣，是糯米唯一的師父。',
     facts: [
       ['毛色', '櫻粉色，頭頂一對櫻粉色的長耳朵'],
@@ -45,10 +45,10 @@ QQ.characters = [
     ],
     quotes: [{ text: '……師兄。」「你來得好慢。', ch: 29 }],
     images: [
-      { src: 'images/characters/zhaozhao-fox.jpg', caption: '昭昭・狐狸的樣子' },
-      { src: 'images/characters/couple-lantern-night-34.jpg', spoiler: 29, full: 'images/characters/couple-lantern-night.jpg', caption: '燈籠夜' },
-      { src: 'images/characters/couple-sakura-moon-34.jpg', spoiler: 29, full: 'images/characters/couple-sakura-moon.jpg', caption: '櫻花月夜' },
-      { src: 'images/characters/card-15-under-sakura.jpg', full: 'images/scenes/15-under-sakura.jpg', caption: '櫻樹下', ch: 37 },
+      { src: 'images/characters/zhaozhao-fox.webp', caption: '昭昭・狐狸的樣子' },
+      { src: 'images/characters/couple-lantern-night-34.webp', spoiler: 29, full: 'images/characters/couple-lantern-night.webp', caption: '燈籠夜' },
+      { src: 'images/characters/couple-sakura-moon-34.webp', spoiler: 29, full: 'images/characters/couple-sakura-moon.webp', caption: '櫻花月夜' },
+      { src: 'images/characters/card-15-under-sakura.webp', full: 'images/scenes/15-under-sakura.webp', caption: '櫻樹下', ch: 37 },
     ],
     places: ['chuxuepo', 'zhaozhao-jia', 'liuduzhen', 'nanbian-yinglin', 'baiyuetai'],
   },
@@ -58,10 +58,10 @@ QQ.characters = [
     stickers: [['moling_hmm', '嗯。'], ['moling_frown', '皺眉'], ['moling_blush', '耳朵紅了'], ['moling_smile', '微笑'], ['moling_pat', '摸頭'], ['moling_good', '讚'], ['moling_peach', '桃子'], ['moling_sweep', '掃路'], ['moling_frost', '結霜'], ['moling_bonk', '被敲頭'], ['moling_what', '疑惑'], ['moling_sleepy', '想睡']], // 表情貼：[檔名, 名稱]
     name: '墨凌',
     color: '#2e2b38',
-    avatar: 'images/characters/moling-avatar.jpg',
-    portrait: { src: 'images/characters/moling-full-34.jpg', full: 'images/characters/moling-full.jpg', caption: '墨凌' },
-    banner: { src: 'images/characters/moling-banner.jpg', caption: '墨凌' },
-    sheet: { src: 'images/characters/moling-sheet.jpg' }, // 角色設定圖（卡片上的按鈕）
+    avatar: 'images/characters/moling-avatar.webp',
+    portrait: { src: 'images/characters/moling-full-34.webp', full: 'images/characters/moling-full.webp', caption: '墨凌' },
+    banner: { src: 'images/characters/moling-banner.webp', caption: '墨凌' },
+    sheet: { src: 'images/characters/moling-sheet.webp' }, // 角色設定圖（卡片上的按鈕）
     tagline: '墨黑色的九尾狐，傳說中青丘最厲害的狐妖。臉很冷，耳朵很容易紅。',
     facts: [
       ['毛色', '墨黑色，頭頂一對漆黑的狐狸耳朵'],
@@ -82,9 +82,9 @@ QQ.characters = [
       { text: '那妳想怎麼做？', ch: 34 },
     ],
     images: [
-      { src: 'images/characters/card-12-ink-jade-hairpin.jpg', spoiler: 29, full: 'images/scenes/12-ink-jade-hairpin.jpg', caption: '墨玉簪' },
-      { src: 'images/characters/card-13-rainy-umbrella.jpg', spoiler: 29, full: 'images/scenes/13-rainy-umbrella.jpg', caption: '雨天的傘' },
-      { src: 'images/characters/card-05-carry-her-down.jpg', full: 'images/scenes/05-carry-her-down.jpg', caption: '背她下山', ch: 6 },
+      { src: 'images/characters/card-12-ink-jade-hairpin.webp', spoiler: 29, full: 'images/scenes/12-ink-jade-hairpin.webp', caption: '墨玉簪' },
+      { src: 'images/characters/card-13-rainy-umbrella.webp', spoiler: 29, full: 'images/scenes/13-rainy-umbrella.webp', caption: '雨天的傘' },
+      { src: 'images/characters/card-05-carry-her-down.webp', full: 'images/scenes/05-carry-her-down.webp', caption: '背她下山', ch: 6 },
     ],
     places: ['chuxuepo', 'beifang-bingyuan', 'baiyuetai', 'leijietai', 'xingdengxiang', 'zhaozhao-jia'],
   },
@@ -95,9 +95,9 @@ QQ.characters = [
     stickers: [['nuomi_hi', '嗨'], ['nuomi_happy', '開心'], ['nuomi_eat', '吃'], ['nuomi_love', '喜歡'], ['nuomi_shy', '害羞'], ['nuomi_hmph', '哼'], ['nuomi_thanks', '謝謝'], ['nuomi_what', '疑惑'], ['nuomi_scared', '害怕'], ['nuomi_sleepy', '想睡'], ['nuomi_cry', '哭哭'], ['nuomi_angry', '生氣']], // 表情貼：[檔名, 名稱]
     name: '糯米',
     color: '#d9b25f',
-    avatar: 'images/characters/nuomi-avatar.jpg',
-    portrait: { src: 'images/characters/nuomi-full-34.jpg', full: 'images/characters/nuomi-full.jpg', caption: '糯米' },
-    portraitBefore: { level: 28, src: 'images/characters/nuomi-fox.jpg', caption: '糯米' }, // 第二十八章化形以前
+    avatar: 'images/characters/nuomi-avatar.webp',
+    portrait: { src: 'images/characters/nuomi-full-34.webp', full: 'images/characters/nuomi-full.webp', caption: '糯米' },
+    portraitBefore: { level: 28, src: 'images/characters/nuomi-fox.webp', caption: '糯米' }, // 第二十八章化形以前
     tagline: '米黃色的小狐狸，在初雪坡的雪窩裡被撿到。嘴硬、貪吃，最愛油豆腐和桃子。',
     facts: [
       ['毛色', '米黃色，肚子和尾巴尖是白的'],
@@ -116,12 +116,12 @@ QQ.characters = [
       { text: '師父，別怕！糯米在這裡！', ch: 25 },
       { text: '這個黑漆漆的是誰！', ch: 29 },
     ],
-    banner: { src: 'images/characters/nuomi-banner.jpg', caption: '糯米' },
-    sheet: { src: 'images/characters/nuomi-sheet.jpg', spoiler: 28 }, // 角色設定圖（卡片上的按鈕）
+    banner: { src: 'images/characters/nuomi-banner.webp', caption: '糯米' },
+    sheet: { src: 'images/characters/nuomi-sheet.webp', spoiler: 28 }, // 角色設定圖（卡片上的按鈕）
     images: [
-      { src: 'images/characters/card-17-transformation.jpg', full: 'images/scenes/17-transformation.jpg', caption: '化形', ch: 28 },
-      { src: 'images/characters/nuomi-fox.jpg', caption: '糯米・狐狸的樣子' },
-      { src: 'images/characters/nuomi-peach.jpg', spoiler: 28, caption: '糯米・桃子' },
+      { src: 'images/characters/card-17-transformation.webp', full: 'images/scenes/17-transformation.webp', caption: '化形', ch: 28 },
+      { src: 'images/characters/nuomi-fox.webp', caption: '糯米・狐狸的樣子' },
+      { src: 'images/characters/nuomi-peach.webp', spoiler: 28, caption: '糯米・桃子' },
     ],
     places: ['zhaozhao-jia', 'yunye', 'xingdengxiang', 'jinghu', 'taolin', 'chuxuepo', 'leijietai'],
   },
@@ -131,8 +131,8 @@ QQ.characters = [
     name: '老狐師父',
     color: '#9c958a',
     mark: '師',
-    avatar: 'images/characters/laohu-avatar.jpg',
-    portrait: { src: 'images/characters/laohu.jpg', caption: '老狐師父' },
+    avatar: 'images/characters/laohu-avatar.webp',
+    portrait: { src: 'images/characters/laohu.webp', caption: '老狐師父' },
     tagline: '白頭髮、白鬍子的老狐狸，初雪坡師門的師父。愛喝酒，什麼都看在眼裡，笑而不語。',
     facts: [
       ['樣子', '白頭髮、白鬍子，駝著背，拄著拐杖，拎著酒葫蘆'],
@@ -155,8 +155,8 @@ QQ.characters = [
     name: '小松',
     color: '#6f8f5a',
     mark: '松',
-    avatar: 'images/characters/xiaosong-avatar.jpg',
-    portrait: { src: 'images/characters/xiaosong.jpg', caption: '小松' },
+    avatar: 'images/characters/xiaosong-avatar.webp',
+    portrait: { src: 'images/characters/xiaosong.webp', caption: '小松' },
     tagline: '初雪坡師門的小徒弟，五條尾巴。序章裡抱著比自己還高的掃帚掃雪的小狐狸，就是她。',
     facts: [
       ['樣子', '圓臉、圓耳朵，穿洗得發白的棉襖；第二十二章看起來十五六歲', 22],
@@ -177,8 +177,8 @@ QQ.characters = [
     name: '老船公',
     color: '#7d8fa3',
     mark: '船',
-    avatar: 'images/characters/laochuangong-avatar.jpg',
-    portrait: { src: 'images/characters/laochuangong.jpg', caption: '老船公' },
+    avatar: 'images/characters/laochuangong-avatar.webp',
+    portrait: { src: 'images/characters/laochuangong.webp', caption: '老船公' },
     tagline: '雲棲渡的老船公，用雲載人。嘴巴很壞，什麼都不多問，什麼都看得出來。',
     facts: [
       ['樣子', '披著蓑衣，鬍子雪白，白眉毛，愛抽煙斗'],
@@ -199,8 +199,8 @@ QQ.characters = [
     name: '書生',
     color: '#5a7a86',
     mark: '書',
-    avatar: 'images/characters/shusheng-avatar.jpg',
-    portrait: { src: 'images/characters/shusheng.jpg', caption: '書生' },
+    avatar: 'images/characters/shusheng-avatar.webp',
+    portrait: { src: 'images/characters/shusheng.webp', caption: '書生' },
     tagline: '柳渡鎮賣字畫的書生，在雨天把自己畫的櫻花傘讓給了昭昭。',
     facts: [
       ['樣子', '一身洗得發白的青布長衫，笑起來眼睛彎彎的'],
@@ -223,8 +223,8 @@ QQ.characters = [
     name: '隔壁阿婆',
     color: '#b9855f',
     mark: '婆',
-    avatar: 'images/characters/abo-avatar.jpg',
-    portrait: { src: 'images/characters/abo.jpg', caption: '隔壁阿婆' },
+    avatar: 'images/characters/abo-avatar.webp',
+    portrait: { src: 'images/characters/abo.webp', caption: '隔壁阿婆' },
     tagline: '住在雲野昭昭家隔壁，隔著一道籬笆。拄著拐杖，叫昭昭「昭姑娘」。',
     facts: [
       ['年紀', '活了七十多年'],
@@ -240,14 +240,14 @@ QQ.characters = [
   },
 
   // ───── 其他的人 ─────
-  { id: 'sanshijie', level: 6, icon: 'chat_bubble', name: '三師姊', minor: true, color: '#c98a9a', mark: '姊', avatar: 'images/characters/sanshijie-avatar.jpg', portrait: { src: 'images/characters/sanshijie.jpg', caption: '三師姊' }, tagline: '初雪坡師門的師姊，嘴巴壞，但不會真的欺負昭昭。是她告訴昭昭，人間下雨的時候，大家會撐著紙做的花走在街上。', places: ['chuxuepo'] },
-  { id: 'doufu-laobanniang', level: 26, icon: 'fried_tofu', name: '豆腐坊的老闆娘', minor: true, color: '#d1a04a', mark: '豆', avatar: 'images/characters/doufu-laobanniang-avatar.jpg', portrait: { src: 'images/characters/doufu-laobanniang.jpg', caption: '豆腐坊的老闆娘' }, tagline: '星燈巷豆腐坊的圓臉老闆娘（第五章叫她「圓臉的狐妖大嬸」），嗓門大，每次都偷偷多給糯米一塊油豆腐。糯米長出第九條尾巴那天，她端來九塊，一條尾巴一塊。', places: ['xingdengxiang'] },
-  { id: 'taolin-dashen', level: 17, icon: 'peach', name: '桃林的大嬸', minor: true, color: '#e07a6a', mark: '桃', avatar: 'images/characters/taolin-dashen-avatar.jpg', portrait: { src: 'images/characters/taolin-dashen.jpg', caption: '桃林的大嬸' }, tagline: '雲野桃林的大嬸，圓圓的臉，叫糯米「糯米丫頭」，每次都塞給她最紅的桃子，還假裝是挑剩的。（第十七章寫的是「桃林的老桃農」。）', places: ['taolin'] },
-  { id: 'tanghulu-yeye', level: 31, icon: 'tanghulu', name: '賣糖葫蘆的老爺爺', minor: true, color: '#b0453f', mark: '糖', avatar: 'images/characters/tanghulu-yeye-avatar.jpg', portrait: { src: 'images/characters/tanghulu-yeye.jpg', caption: '賣糖葫蘆的老爺爺' }, tagline: '星燈巷巷口賣糖葫蘆的老狐妖，鬍鬚全白，擺了一輩子的攤。他替墨凌和昭昭留著兩串糖葫蘆，一留就是一百多年。', places: ['xingdengxiang'] },
-  { id: 'xiaoyaoguai', level: 31, icon: 'riddle_lantern', name: '星燈巷的小妖怪們', minor: true, color: '#8a7bb0', mark: '妖', avatar: 'images/characters/xiaoyaoguai-avatar.jpg', portrait: { src: 'images/characters/xiaoyaoguai.jpg', caption: '星燈巷的小妖怪們' }, tagline: '巷口嘰嘰喳喳的小妖怪，每天都來找糯米玩；一開始看見墨凌就躲，後來圍著他要看狐火。', places: ['xingdengxiang'] },
-  { id: 'shitou', level: 25, icon: 'study', name: '石頭', minor: true, color: '#8a8a6a', mark: '石', avatar: 'images/characters/shitou-child-avatar.jpg', portrait: { src: 'images/characters/shitou-child.jpg', caption: '小時候的石頭' }, images: [{ src: 'images/characters/shitou-old.jpg', spoiler: 25, caption: '老了的石頭' }], tagline: '杏花村私塾裡最小的孩子，唯一不怕昭昭的人：「師娘，妳的尾巴，好漂亮。」後來陪先生走完最後一年，在桑溪替先生和老太太送了快九十年的饅頭。', places: ['xinghuacun', 'sangxi'] },
-  { id: 'shusheng-niang', level: 16, icon: 'red_thread', name: '書生的娘', minor: true, color: '#9a8f86', mark: '娘', avatar: 'images/characters/shusheng-niang-avatar.jpg', portrait: { src: 'images/characters/shusheng-niang.jpg', caption: '書生的娘' }, tagline: '住在桑溪的老婦人，把傳家的銀鐲子套在昭昭手腕上：「等他老了，妳別嫌他。」', places: ['sangxi'] },
-  { id: 'gaodian-daniang', level: 10, icon: 'osmanthus_cake', name: '糕點鋪的大娘', minor: true, color: '#c49a6c', mark: '糕', avatar: 'images/characters/gaodian-daniang-avatar.jpg', portrait: { src: 'images/characters/gaodian-daniang.jpg', caption: '糕點鋪的大娘' }, tagline: '柳渡鎮糕點鋪的大娘，書生就住在她樓上。是她教會昭昭桂花糕：「好吃的東西，都是等出來的。」', places: ['liuduzhen'] },
+  { id: 'sanshijie', level: 6, icon: 'chat_bubble', name: '三師姊', minor: true, color: '#c98a9a', mark: '姊', avatar: 'images/characters/sanshijie-avatar.webp', portrait: { src: 'images/characters/sanshijie.webp', caption: '三師姊' }, tagline: '初雪坡師門的師姊，嘴巴壞，但不會真的欺負昭昭。是她告訴昭昭，人間下雨的時候，大家會撐著紙做的花走在街上。', places: ['chuxuepo'] },
+  { id: 'doufu-laobanniang', level: 26, icon: 'fried_tofu', name: '豆腐坊的老闆娘', minor: true, color: '#d1a04a', mark: '豆', avatar: 'images/characters/doufu-laobanniang-avatar.webp', portrait: { src: 'images/characters/doufu-laobanniang.webp', caption: '豆腐坊的老闆娘' }, tagline: '星燈巷豆腐坊的圓臉老闆娘（第五章叫她「圓臉的狐妖大嬸」），嗓門大，每次都偷偷多給糯米一塊油豆腐。糯米長出第九條尾巴那天，她端來九塊，一條尾巴一塊。', places: ['xingdengxiang'] },
+  { id: 'taolin-dashen', level: 17, icon: 'peach', name: '桃林的大嬸', minor: true, color: '#e07a6a', mark: '桃', avatar: 'images/characters/taolin-dashen-avatar.webp', portrait: { src: 'images/characters/taolin-dashen.webp', caption: '桃林的大嬸' }, tagline: '雲野桃林的大嬸，圓圓的臉，叫糯米「糯米丫頭」，每次都塞給她最紅的桃子，還假裝是挑剩的。（第十七章寫的是「桃林的老桃農」。）', places: ['taolin'] },
+  { id: 'tanghulu-yeye', level: 31, icon: 'tanghulu', name: '賣糖葫蘆的老爺爺', minor: true, color: '#b0453f', mark: '糖', avatar: 'images/characters/tanghulu-yeye-avatar.webp', portrait: { src: 'images/characters/tanghulu-yeye.webp', caption: '賣糖葫蘆的老爺爺' }, tagline: '星燈巷巷口賣糖葫蘆的老狐妖，鬍鬚全白，擺了一輩子的攤。他替墨凌和昭昭留著兩串糖葫蘆，一留就是一百多年。', places: ['xingdengxiang'] },
+  { id: 'xiaoyaoguai', level: 31, icon: 'riddle_lantern', name: '星燈巷的小妖怪們', minor: true, color: '#8a7bb0', mark: '妖', avatar: 'images/characters/xiaoyaoguai-avatar.webp', portrait: { src: 'images/characters/xiaoyaoguai.webp', caption: '星燈巷的小妖怪們' }, tagline: '巷口嘰嘰喳喳的小妖怪，每天都來找糯米玩；一開始看見墨凌就躲，後來圍著他要看狐火。', places: ['xingdengxiang'] },
+  { id: 'shitou', level: 25, icon: 'study', name: '石頭', minor: true, color: '#8a8a6a', mark: '石', avatar: 'images/characters/shitou-child-avatar.webp', portrait: { src: 'images/characters/shitou-child.webp', caption: '小時候的石頭' }, images: [{ src: 'images/characters/shitou-old.webp', spoiler: 25, caption: '老了的石頭' }], tagline: '杏花村私塾裡最小的孩子，唯一不怕昭昭的人：「師娘，妳的尾巴，好漂亮。」後來陪先生走完最後一年，在桑溪替先生和老太太送了快九十年的饅頭。', places: ['xinghuacun', 'sangxi'] },
+  { id: 'shusheng-niang', level: 16, icon: 'red_thread', name: '書生的娘', minor: true, color: '#9a8f86', mark: '娘', avatar: 'images/characters/shusheng-niang-avatar.webp', portrait: { src: 'images/characters/shusheng-niang.webp', caption: '書生的娘' }, tagline: '住在桑溪的老婦人，把傳家的銀鐲子套在昭昭手腕上：「等他老了，妳別嫌他。」', places: ['sangxi'] },
+  { id: 'gaodian-daniang', level: 10, icon: 'osmanthus_cake', name: '糕點鋪的大娘', minor: true, color: '#c49a6c', mark: '糕', avatar: 'images/characters/gaodian-daniang-avatar.webp', portrait: { src: 'images/characters/gaodian-daniang.webp', caption: '糕點鋪的大娘' }, tagline: '柳渡鎮糕點鋪的大娘，書生就住在她樓上。是她教會昭昭桂花糕：「好吃的東西，都是等出來的。」', places: ['liuduzhen'] },
 ];
 
 // 角色關係圖（角色頁最上面）
