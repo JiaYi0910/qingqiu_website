@@ -41,6 +41,10 @@
         const line = li.dataset.line;
         li.hidden = want !== 'all' && line !== want && line !== 'both';
       });
+      // 整卷都沒有符合的章節（例如選過去線時的序章），連卷名一起藏起來
+      box.querySelectorAll('.volume').forEach((sec) => {
+        sec.hidden = !sec.querySelector('.ch:not([hidden])');
+      });
     }));
 
     if (location.hash) {

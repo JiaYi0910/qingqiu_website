@@ -27,6 +27,8 @@
 }
 
 * { box-sizing: border-box; }
+/* 程式把東西藏起來（hidden）時，不管那個東西原本是 grid 還是 flex，都一定要藏住 */
+[hidden] { display: none !important; }
 
 html { scroll-behavior: smooth; }
 
