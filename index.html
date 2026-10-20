@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>青丘地圖｜墨染櫻雪</title>
+  <meta name="description" content="《墨染櫻雪》的青丘：點地圖上的地點，看小說裡的樣子、插畫、角色和章節。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="map">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-title">墨染櫻雪</span><span class="brand-sub">青丘地圖</span></a>
+      <nav class="site-nav" aria-label="網站"></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero-banner">
+      <picture>
+        <source srcset="images/banner/sakura-fall-still.png" media="(prefers-reduced-motion: reduce)">
+        <img src="images/banner/sakura-fall.gif" alt="墨凌和昭昭，櫻花飄落" width="680" height="240">
+      </picture>
+    </div>
+    <p class="lead">北邊是松濤山，山腳下的初雪坡上，有一盞長年不熄的燈。<br>
+      點地圖上的地名，看看那裡發生過的事。</p>
+    <div id="links"></div>
+
+    <section class="map-section" aria-label="青丘地圖">
+      <div class="map-frame" id="map">
+        <div class="map-inner">
+          <img alt="青丘地圖：北邊松濤山與初雪坡，中間青丘之巔、拜月台、雷劫台，南邊星燈巷、稻香里、雲棲渡，右下角霧的另一邊是雲野" width="1536" height="1024">
+          <div class="map-layer"></div>
+        </div>
+      </div>
+      <p class="map-swipe">← 地圖可以左右滑動 →</p>
+      <div class="map-legend">
+        <span><i class="legend-dot legend-dot--novel"></i>小說裡的地點</span>
+        <span><i class="legend-dot legend-dot--map"></i>地圖上的地名（小說還沒寫到）</span>
+        <span><i class="legend-dot legend-dot--arrow"></i>往地圖外面</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="mini-title">
+      <h2 id="mini-title">霧的另一邊，和師門裡面</h2>
+      <div class="mini-maps" id="mini-maps"></div>
+    </section>
+
+    <section class="section" aria-labelledby="regions-title">
+      <h2 id="regions-title">地點一覽</h2>
+      <div class="region-list" id="regions"></div>
+    </section>
+  </main>
+
+  <aside class="spot-card" id="spot-card" hidden aria-live="polite">
+    <button type="button" class="spot-card__close" aria-label="關閉">×</button>
+    <div class="spot-card__content"></div>
+  </aside>
+
+  <footer class="site-footer">《墨染櫻雪》青丘地圖・昭昭的小說世界</footer>
+
+  <script src="js/data/places.js"></script>
+  <script src="js/data/characters.js"></script>
+  <script src="js/data/chapters.js"></script>
+  <script src="js/data/map.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
