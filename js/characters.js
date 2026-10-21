@@ -155,7 +155,7 @@
       + `<section class="section"><h2>其他的人</h2><div class="spots-grid">${minor.map(minorHtml).join('')}</div></section>`;
     setupPicTabs(list);
     if (location.hash) {
-      const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      const target = document.getElementById(QQ.hashId());
       if (target) target.scrollIntoView();
     }
   });

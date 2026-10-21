@@ -37,6 +37,13 @@ const published = (await res.json()).flatMap((c) => c.chapters || []);
 let src = readFileSync(FILE, 'utf8');
 const added = [];
 for (const ch of published) {
+  // 安全檢查：寫進網站程式的只能是正整數的章節編號，章名也只能是一般文字。
+  // 萬一 KadoKado 回傳了奇怪的東西，就跳過，不會被塞進 chapters.js。
+  if (!Number.isSafeInteger(ch.chapterId) || ch.chapterId <= 0 || typeof ch.chapterDisplayName !== 'string') {
+    console.log('KadoKado 回傳的資料格式不對，跳過這一筆。');
+    continue;
+  }
+  ch.chapterDisplayName = ch.chapterDisplayName.replace(/[\u0000-\u001f\u007f]/g, '').slice(0, 80);
   const no = chapterNo(ch.chapterDisplayName);
   if (no == null) {
     console.log(`看不懂這個章名，跳過：${ch.chapterDisplayName}`);

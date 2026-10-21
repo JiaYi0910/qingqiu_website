@@ -1,0 +1,5 @@
+# 歡迎所有搜尋引擎。網站地圖在下面。
+User-agent: *
+Allow: /
+
+Sitemap: https://jiayi0910.github.io/qingqiu_website/sitemap.xml

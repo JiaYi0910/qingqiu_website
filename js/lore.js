@@ -20,7 +20,7 @@
       `<a class="chip" href="#${s.id}">${QQ.icon(s.icon)}${QQ.esc(s.title)}</a>`).join('');
     document.getElementById('lore').innerHTML = QQ.lore.map(sectionHtml).join('');
     if (location.hash) {
-      const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      const t = document.getElementById(QQ.hashId());
       if (t) t.scrollIntoView();
     }
   });

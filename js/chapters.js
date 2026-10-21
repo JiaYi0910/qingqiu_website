@@ -50,7 +50,7 @@
     }));
 
     if (location.hash) {
-      const target = document.getElementById(location.hash.slice(1));
+      const target = document.getElementById(QQ.hashId());
       if (target) target.scrollIntoView();
     }
   });

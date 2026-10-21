@@ -18,7 +18,7 @@
     const grid = document.getElementById('quotes');
     grid.innerHTML = QQ.quotes.map(cardHtml).join('');
     // 從搜尋點進來（quotes.html#q-3）：捲到那一句
-    if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView({ block: 'center' });
+    if (location.hash) document.getElementById(QQ.hashId())?.scrollIntoView({ block: 'center' });
 
     // 照說話的人篩選（只列有句子的人）
     const who = [...new Set(QQ.quotes.map((q) => q.who))].map(QQ.character);

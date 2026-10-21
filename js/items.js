@@ -54,7 +54,7 @@
       + (unknown ? `<span class="chip chip--muted">${QQ.icon('lock')}還有 ${unknown} 樣你還沒讀到</span>` : '');
     document.getElementById('items').innerHTML = QQ.items.map(itemHtml).join('');
     if (location.hash) {
-      const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      const t = document.getElementById(QQ.hashId());
       if (t) t.scrollIntoView();
     }
   });

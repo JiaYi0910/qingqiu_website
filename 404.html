@@ -2,10 +2,13 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
+  <!-- 網路安全：只准載入這個網站自己、GoatCounter 和 Google 字型的東西（防止被塞進別的程式） -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at 'sha256-EeIUO2T9j26SzKqmVnqqejVLIuXug2+1lpc7whHD3sM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://jiayi.goatcounter.com; connect-src 'self' https://jiayi.goatcounter.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="昭昭⋆.˚✮">
   <meta name="copyright" content="© 2026 昭昭⋆.˚✮《墨染櫻雪》，版權所有，請勿轉載">
-  <title>迷路了｜墨染櫻雪・青丘地圖</title>
+  <title>迷路了｜墨染櫻雪 青丘地圖</title>
   <!-- 打錯網址時，GitHub Pages 會在那個網址顯示這一頁；網址可能在任何一層資料夾，所以要先指定網站的根目錄 -->
   <script>document.write('<base href="' + (location.hostname.endsWith('github.io') ? '/qingqiu_website/' : '/') + '">');</script>
   <meta name="robots" content="noindex">

@@ -97,18 +97,48 @@
     return html;
   }
 
+  // 給 Google 看的標題、描述、canonical（每個地點一個網址）。
+  // 不管讀者讀到哪一章，這裡都只用不劇透的介紹：地點的 safe 欄位，或序章就出現的地點自己的介紹。
+  function setSeo(p) {
+    const region = QQ.region(p.region);
+    const first = QQ.placeFirst(p.id);
+    const intro = (p.safe && p.safe.tagline) || (p.kind === 'map' || first === 0 ? p.tagline : '')
+      || `${p.name}，在${region ? region.name : '青丘'}。`;
+    const title = `${p.name}｜地點・墨染櫻雪 青丘地圖`;
+    const desc = `${intro}《墨染櫻雪》九尾狐原創小說的地點介紹：小說裡的樣子、風景插畫、發生在這裡的章節。`;
+    const url = `https://jiayi0910.github.io/qingqiu_website/place.html?id=${encodeURIComponent(p.id)}`;
+    document.title = title;
+    const meta = (sel, attr, value) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, value); };
+    meta('meta[name="description"]', 'content', desc);
+    meta('meta[property="og:title"]', 'content', title);
+    meta('meta[property="og:description"]', 'content', desc);
+    meta('meta[property="og:url"]', 'content', url);
+    let canon = document.querySelector('link[rel="canonical"]');
+    if (!canon) {
+      canon = document.createElement('link');
+      canon.rel = 'canonical';
+      document.head.appendChild(canon);
+    }
+    canon.href = url;
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const main = document.getElementById('place');
     const p = QQ.place(QQ.param('id'));
     if (!p) {
+      // 找不到的地點不要被 Google 收進去
+      const robots = document.createElement('meta');
+      robots.name = 'robots';
+      robots.content = 'noindex';
+      document.head.appendChild(robots);
       main.innerHTML = `<div class="not-found">${QQ.icon('nuomi_what', 'icon--title')}<h1>找不到這個地方</h1><p><a href="index.html">回青丘地圖</a></p></div>`;
       return;
     }
-    document.title = `${p.name}｜墨染櫻雪・青丘地圖`;
+    setSeo(p);
     main.innerHTML = render(p);
     // 從師門圖點進來（#spot-3）：捲到那個小地方
     if (location.hash) {
-      const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      const t = document.getElementById(QQ.hashId());
       if (t) t.scrollIntoView();
     }
   });

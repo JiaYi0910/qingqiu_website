@@ -91,6 +91,16 @@ qingqiu_website/
 
 **分享卡片**：每一頁 `<head>` 裡的 `og:` 設定，圖片在 `images/og/`（1200×630，只用不劇透的圖）。Discord 會快取卡片，改了以後要過一陣子才會更新。
 
+**讓 Google 找得到**：
+- 每一頁的 `<title>`、`description`、`canonical` 都不一樣；地點頁由 `js/place.js` 的 `setSeo()` 依 `?id=` 設定，只用不劇透的介紹（`safe` 或序章就出現的地點）。
+- `sitemap.xml` 是 `node tools/make_sitemap.mjs` 產生的：**新增頁面或地點以後，執行一次再推上去**。
+- `robots.txt` 寫了 sitemap 的位置（GitHub Pages 的專案網站，Google 主要是從 Search Console 拿到 sitemap）。
+- Google Search Console 的驗證 meta 標籤放在 `index.html` 的 `<head>`。
+
+**網路安全**：每一頁 `<head>` 最上面的 `Content-Security-Policy` 只准載入網站自己、GoatCounter 和 Google 字型的東西。
+要加新的外部程式、字型或圖片網址時，每一頁的這一行都要一起加，不然會被擋掉。GoatCounter 用固定版本加 `integrity` 檢查；
+`tools/update_kado.mjs` 只會把「正整數」的章節編號寫進網站。
+
 **著作權**：每一頁的頁尾、看大圖的視窗、`<head>` 裡的 `author` / `copyright` 都標了「© 2026 昭昭⋆.˚✮《墨染櫻雪》」，網站本身（內容、版面設計、程式）也包含在內，文字在 `js/common.js` 的 `QQ.copyright`；完整的聲明在 `LICENSE`。
 插畫、地圖、周邊、分享卡片和首頁橫幅的右下角都有浮水印（頭像和小圖示太小，不加）；浮水印的字和樣子在 `tools/to_webp.py` 的 `mark()`。
 

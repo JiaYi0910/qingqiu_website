@@ -24,6 +24,14 @@
   };
 
   QQ.param = (name) => new URLSearchParams(location.search).get(name);
+  // 網址 # 後面的代號（例如 #ch-5）。亂打的網址解不開時回傳空字串，不讓頁面出錯
+  QQ.hashId = () => {
+    try {
+      return decodeURIComponent(location.hash.slice(1));
+    } catch (e) {
+      return '';
+    }
+  };
 
   // 小圖示（images/icons/ 裡會動的圖：從糯米的表情符號資料夾複製 GIF，再轉成比較小的 WebP，一樣會動）
   QQ.icon = function (name, cls) {
@@ -436,7 +444,10 @@
     if (!QQ.goatcounter || !/github\.io$/.test(location.hostname)) return;
     const s = document.createElement('script');
     s.async = true;
-    s.src = 'https://gc.zgo.at/count.js';
+    // 用固定版本的 count.v4.js，加上 integrity：檔案只要被人改過一個字，瀏覽器就不會執行
+    s.src = 'https://gc.zgo.at/count.v4.js';
+    s.integrity = 'sha384-nRw6qfbWyJha9LhsOtSb2YJDyZdKvvCFh0fJYlkquSFjUxp9FVNugbfy8q1jdxI+';
+    s.crossOrigin = 'anonymous';
     s.dataset.goatcounter = `https://${QQ.goatcounter}.goatcounter.com/count`;
     document.head.appendChild(s);
   }
