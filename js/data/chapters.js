@@ -109,7 +109,7 @@ QQ.chapters = [
 
   // ── 卷二〈人間有雨〉 ──
   {
-    no: 7, title: '雷雨夜', vol: 'v2', line: 'both', written: true,
+    no: 7, title: '雷雨夜', vol: 'v2', line: 'both', written: true, kado: 958769,
     summary: '糯米三尾凝妖丹，雷雨夜躲進昭昭的袖子。昭昭想起自己也躲過另一個人的袖子，那袖子是墨色的。「我會在。」',
     places: [
       { id: 'zhaozhao-jia', spot: '後院的拜月石', what: '糯米在昭昭從河邊搬回來的「拜月台」上凝妖丹，雷雨夜逃進了袖子。' },
@@ -119,7 +119,7 @@ QQ.chapters = [
     image: { src: 'images/scenes/01-thunder-night.webp', caption: '雷雨夜' },
   },
   {
-    no: 8, title: '下山歷練', vol: 'v2', line: 'past', written: true,
+    no: 8, title: '下山歷練', vol: 'v2', line: 'past', written: true, kado: 958927,
     summary: '拜師第四十年，昭昭渡雷劫化成人形，墨凌把石欄捏出五道裂痕。師父派她一個人下山，去人間歷練三年。',
     places: [
       { id: 'leijietai', what: '昭昭跪在台中央挨過九道雷；墨凌站在石欄外，從第一道雷站到最後一道，把白玉石欄捏出五道裂痕。' },
