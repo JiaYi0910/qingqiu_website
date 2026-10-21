@@ -857,3 +857,39 @@ dialog.lightbox button {
 .lost p { color: var(--ink-soft); font-family: var(--serif); }
 .lost__actions { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
 .lost__actions .btn { display: inline-block; text-decoration: none; }
+
+/* ---------- 新手引導（js/tour.js）：糯米帶第一次來的人逛一圈 ---------- */
+.tour { position: fixed; inset: 0; z-index: 1000; }
+.tour__block { position: fixed; inset: 0; }
+.tour--center .tour__block { background: rgba(20, 16, 24, 0.55); }
+.tour__spot {
+  position: fixed; border-radius: 14px; pointer-events: none;
+  box-shadow: 0 0 0 3px var(--sakura), 0 0 0 9999px rgba(20, 16, 24, 0.55);
+  transition: left 0.25s ease, top 0.25s ease, width 0.25s ease, height 0.25s ease;
+}
+.tour--center .tour__spot { display: none; }
+.tour__card {
+  position: fixed; width: min(360px, calc(100vw - 24px)); padding: 14px 16px 12px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(20, 16, 24, 0.35); transition: left 0.25s ease, top 0.25s ease;
+}
+.tour__head { display: flex; align-items: center; gap: 10px; }
+.tour__mascot .icon { width: 56px; height: 56px; margin: 0; }
+.tour__title { margin: 0; font-size: 1.12rem; line-height: 1.4; }
+.tour__text { margin: 8px 0 12px; color: var(--ink-soft); font-size: 0.94rem; line-height: 1.75; }
+.tour__foot { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.tour__dots { display: flex; gap: 5px; margin-right: auto; }
+.tour__dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+.tour__dots i.on { background: var(--sakura-deep); }
+.tour__skip { background: none; border: 0; padding: 6px 4px; color: var(--ink-faint); font: inherit; font-size: 0.85rem; text-decoration: underline; cursor: pointer; }
+.tour__foot .btn { padding: 6px 14px; font-size: 0.9rem; }
+@media (prefers-reduced-motion: reduce) { .tour__spot, .tour__card { transition: none; } }
+/* 矮的手機：對話框小一點，才不會蓋住要介紹的東西 */
+@media (max-height: 620px) { .tour__mascot .icon { width: 40px; height: 40px; } .tour__text { font-size: 0.86rem; line-height: 1.6; margin: 6px 0 8px; } .tour__card { padding: 10px 12px 8px; } }
+.tour-again { margin: 14px 0 0; }
+.tour-again button {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px 12px 3px 6px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink-soft); font: inherit; font-size: 0.82rem; cursor: pointer;
+}
+.tour-again button:hover { background: var(--sakura-soft); }
+.tour-again .icon { width: 22px; height: 22px; margin: 0; }
