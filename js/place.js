@@ -104,7 +104,7 @@
     const first = QQ.placeFirst(p.id);
     const intro = (p.safe && p.safe.tagline) || (p.kind === 'map' || first === 0 ? p.tagline : '')
       || `${p.name}，在${region ? region.name : '青丘'}。`;
-    const title = `${p.name}｜地點・墨染櫻雪 青丘地圖`;
+    const title = `${p.name}｜墨染櫻雪 地點`;
     const desc = `${intro}《墨染櫻雪》九尾狐原創小說的地點介紹：小說裡的樣子、風景插畫、發生在這裡的章節。`;
     const url = `https://jiayi0910.github.io/qingqiu_website/place.html?id=${encodeURIComponent(p.id)}`;
     document.title = title;
