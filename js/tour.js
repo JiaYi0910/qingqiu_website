@@ -206,7 +206,9 @@
   }
   QQ.startTour = start;
 
-  window.addEventListener('load', () => {
+  // 頁面準備好就開始（不用等全部的圖片載完）；圖片載完以後，如果引導還開著，再對準一次位置
+  window.addEventListener('load', () => { if (document.querySelector('.tour')) window.dispatchEvent(new Event('resize')); });
+  document.addEventListener('DOMContentLoaded', () => {
     // 頁尾：再看一次（標題列不加東西）
     document.querySelectorAll('.site-footer').forEach((f) => {
       const copy = f.querySelector('.copyright');
@@ -219,7 +221,7 @@
     });
     // 第一次來（或網址有 ?tour=1）才自動開始；從「在地圖上看」的連結進來的人已經在用網站了，不打擾
     const forced = parseInt(QQ.param('tour'), 10);
-    if (forced > 0) setTimeout(() => start(forced), 400);
-    else if (!seen.get() && !QQ.param('ch')) setTimeout(() => start(1), 400);
+    if (forced > 0) setTimeout(() => start(forced), 500);
+    else if (!seen.get() && !QQ.param('ch')) setTimeout(() => start(1), 500);
   });
 })();
