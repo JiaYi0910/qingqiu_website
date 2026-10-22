@@ -129,7 +129,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'moling', 'laohu', 'laochuangong'],
   },
   {
-    no: 9, title: '雨中的書生', vol: 'v2', line: 'past', written: true,
+    no: 9, title: '雨中的書生', vol: 'v2', line: 'past', written: true, kado: 958936,
     summary: '人間的梅雨天，一個書生把自己畫的櫻花傘讓給了她。同一天，初雪坡在六月下了一場雪。',
     places: [
       { id: 'liuduzhen', spot: '書肆', what: '在書肆窄窄的屋簷下躲雨，賣字畫的書生把櫻花傘給了她。' },
@@ -139,7 +139,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'shusheng', 'gaodian-daniang'],
   },
   {
-    no: 10, title: '狐火與桂花糕', vol: 'v2', line: 'both', written: true,
+    no: 10, title: '狐火與桂花糕', vol: 'v2', line: 'both', written: true, kado: 959053,
     summary: '糯米長出第五條尾巴、第一次放出狐火，把桂花糕燒成了炭。昭昭的桂花糕，是在人間學的。',
     places: [
       { id: 'zhaozhao-jia', spot: '桂花樹', what: '桂花開的秋天，糯米把師父的桂花糕燒成炭，隔天做了一盤歪歪扭扭的來賠罪。' },
