@@ -1,5 +1,5 @@
 // 邊逛邊聽：每一頁左下角的小播放器，播 js/data/music.js 裡的曲子（播完一首接下一首）。
-// 換頁時記住播到哪裡（sessionStorage，關掉分頁就忘記），新的一頁從同一個地方接著播。
+// 音樂在播的時候換頁不會斷（見下面的「換頁不中斷」）。重新整理時記得播到哪裡（sessionStorage，關掉分頁就忘記），從同一個地方接著播；
 // 瀏覽器不讓自動出聲的時候（例如 iPhone），會亮起「點一下繼續」。不會在第一次來的時候自己開始播。
 (function () {
   const QQ = window.QQ;
@@ -19,6 +19,18 @@
   document.addEventListener('DOMContentLoaded', () => {
     const list = songs();
     if (!list.length) return;
+
+    // 這一頁是放在「邊聽邊逛」外框裡的內容（見下面的 enterShell）：
+    // 不用自己的播放器，外框左下角那個一直在播；這一頁有別的播放器開始播（例如音樂頁的），就請外框先停
+    let inShell = false;
+    try { inShell = window.top !== window && window.top.document.body.classList.contains('qq-shell'); } catch (e) { inShell = false; }
+    if (inShell) {
+      document.addEventListener('play', () => {
+        try { window.top.QQ.player.pause(); } catch (e) { /* 外框不在了就算了 */ }
+      }, true);
+      return;
+    }
+
     const saved = store.get();
     const state = { i: Math.min(saved.i || 0, list.length - 1), t: saved.t || 0, on: !!saved.on, open: !!saved.open, started: !!saved.started };
 
@@ -108,8 +120,9 @@
       return audio.play().then(() => {
         blocked = false;
         state.on = true;
-        // 同一頁裡別的播放器（例如音樂頁的）先停下來
+        // 同一頁裡別的播放器（例如音樂頁的）先停下來；外框裡的那一頁也是
         document.querySelectorAll('audio').forEach((a) => { if (a !== audio) a.pause(); });
+        try { if (shell) shell.contentDocument.querySelectorAll('audio').forEach((a) => a.pause()); } catch (e) { /* 沒關係 */ }
       }).catch(() => {
         // 瀏覽器不讓自動出聲：等使用者點一下
         blocked = state.on;
@@ -165,6 +178,71 @@
     // 同一頁裡別的播放器開始播（例如音樂頁的），這個就先停
     document.addEventListener('play', (e) => {
       if (e.target !== audio && !audio.paused) pause();
+    }, true);
+    QQ.player = { pause, play, isPlaying: () => !audio.paused };
+
+    // ---------- 換頁不中斷 ----------
+    // 音樂在播的時候點網站裡的連結：不讓整頁重新載入（那樣音樂會斷），
+    // 改成把新的一頁放進一個蓋滿畫面的外框（iframe）裡，左下角的播放器留在原地繼續播。
+    // 之後在外框裡怎麼換頁都不會斷；網址列、分頁標題跟著外框裡的那一頁走，上一頁也照常。
+    let shell = null;
+    const canShell = /^https?:$/.test(location.protocol); // 直接雙擊打開檔案時不用
+
+    function syncFromShell() {
+      try {
+        const w = shell.contentWindow;
+        history.replaceState(null, '', w.location.href);
+        document.title = w.document.title;
+      } catch (e) { /* 拿不到就算了 */ }
+    }
+
+    function enterShell(target) {
+      shell = document.createElement('iframe');
+      shell.className = 'shell-frame';
+      shell.title = '網站內容';
+      shell.style.visibility = 'hidden';
+      // 先在外框裡打開「現在這一頁」，再換到要去的那一頁，按上一頁才回得來
+      shell.src = location.href;
+      let first = true;
+      shell.addEventListener('load', () => {
+        if (first) {
+          first = false;
+          shell.contentWindow.location.href = target;
+          return;
+        }
+        if (shell.style.visibility === 'hidden') {
+          shell.style.visibility = '';
+          document.body.classList.add('qq-shell-ready');
+        }
+        // 鍵盤（上下鍵、空白鍵）直接捲動新的一頁
+        try { shell.contentWindow.focus(); } catch (e) { /* 沒關係 */ }
+        syncFromShell();
+        try { shell.contentWindow.addEventListener('hashchange', syncFromShell); } catch (e) { /* 沒關係 */ }
+      });
+      document.body.classList.add('qq-shell');
+      document.body.appendChild(shell);
+    }
+
+    function goTo(href) {
+      if (shell) shell.contentWindow.location.href = href;
+      else enterShell(href);
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!canShell || e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest('a[href]');
+      if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      if (!/(\.html|\/)$/.test(url.pathname)) return;
+      // 同一頁裡的 #錨點：照原本的方式捲過去
+      if (url.pathname === location.pathname && url.search === location.search && url.hash) return;
+      // 已經在外框裡（只剩播放器的「歌詞」連結在外面）：一律在外框裡打開
+      if (shell) { e.preventDefault(); goTo(url.href); return; }
+      // 音樂沒在播：照原本的方式換頁
+      if (audio.paused) return;
+      e.preventDefault();
+      goTo(url.href);
     }, true);
 
     if ('mediaSession' in navigator) {
