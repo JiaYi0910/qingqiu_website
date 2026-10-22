@@ -916,3 +916,47 @@ dialog.lightbox button {
   .song__body { width: 100%; }
   .lyrics__part .lyrics__label { letter-spacing: 0; font-size: 0.74rem; }
 }
+
+/* ---------- 邊逛邊聽：左下角的小播放器（js/player.js） ---------- */
+.player { position: fixed; left: 14px; bottom: 14px; z-index: 31; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; max-width: calc(100vw - 28px); }
+.player__pill {
+  display: inline-flex; align-items: center; gap: 4px; max-width: 100%;
+  padding: 4px 12px 4px 6px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255, 250, 240, 0.94);
+  color: var(--ink-soft); font: inherit; font-size: 0.8rem; cursor: pointer; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+.player__pill:hover { background: var(--sakura-soft); }
+.player__pill .icon { width: 22px; height: 22px; margin: 0; flex: none; }
+.player__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player.is-blocked .player__pill { border-color: var(--sakura-deep); color: var(--sakura-deep); animation: player-pulse 1.6s ease-in-out infinite; }
+@keyframes player-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(185, 85, 111, 0.45); } 50% { box-shadow: 0 0 0 7px rgba(185, 85, 111, 0); } }
+/* 正在播的時候，名字旁邊的三條小線會跳 */
+.player__eq { display: none; align-items: flex-end; gap: 2px; height: 12px; margin: 0 2px; }
+.player.is-playing .player__eq { display: inline-flex; }
+.player__eq i { width: 3px; height: 4px; background: var(--sakura-deep); border-radius: 1px; animation: player-eq 0.9s ease-in-out infinite; }
+.player__eq i:nth-child(2) { animation-delay: 0.2s; }
+.player__eq i:nth-child(3) { animation-delay: 0.4s; }
+@keyframes player-eq { 0%, 100% { height: 4px; } 50% { height: 12px; } }
+.player__panel {
+  width: min(320px, calc(100vw - 28px)); padding: 10px 12px 10px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 8px 28px rgba(40, 30, 30, 0.22);
+}
+.player__info { display: grid; grid-template-columns: 52px 1fr auto; gap: 10px; align-items: center; }
+.player__cover { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; }
+.player__text { display: grid; min-width: 0; }
+.player__title { font-family: var(--serif); font-size: 1rem; }
+.player__kind { font-size: 0.75rem; color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player__close { border: 0; background: none; font-size: 1.2rem; line-height: 1; color: var(--ink-faint); cursor: pointer; padding: 4px 6px; align-self: start; }
+.player__bar { width: 100%; margin: 10px 0 4px; accent-color: var(--sakura-deep); }
+.player__row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.player__time { font-size: 0.75rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; min-width: 6.5em; }
+.player__btns { display: inline-flex; gap: 6px; }
+.player__btns button {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper);
+  color: var(--ink); font-size: 0.85rem; cursor: pointer; display: inline-grid; place-items: center; padding: 0;
+}
+.player__btns .player__play { width: 40px; height: 40px; background: var(--moling); color: #fff; border-color: var(--moling); font-size: 0.95rem; }
+.player__btns button:hover { background: var(--sakura-soft); }
+.player__btns .player__play:hover { background: #45405a; }
+.player__lyrics { font-size: 0.8rem; min-width: 2.5em; text-align: right; }
+@media (prefers-reduced-motion: reduce) { .player__eq i, .player.is-blocked .player__pill { animation: none; } }
+@media print { .player { display: none; } }

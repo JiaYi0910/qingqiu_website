@@ -7,7 +7,7 @@
 window.QQ = window.QQ || {};
 
 QQ.music = {
-  intro: '昭昭⋆.˚✮ 為《墨染櫻雪》做的曲子。',
+  intro: '昭昭⋆.˚✮ 為《墨染櫻雪》做的曲子。也可以按每一頁左下角的「邊逛邊聽」，一邊逛網站一邊聽。',
   songs: [
     {
       id: 'shuangheng',

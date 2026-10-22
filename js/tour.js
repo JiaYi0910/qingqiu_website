@@ -1,5 +1,6 @@
 // 新手引導：第一次來的人，由糯米帶著逛一圈（隨時可以跳過，看完或跳過就不會再出現）。
 // 頁尾的「再看一次新手引導」、或網址加上 ?tour=1，可以再看一次（?tour=3 = 從第三步開始）。
+// 首頁 8 步、其他頁 6 步。
 // 要改步驟或文字，改下面的 steps()。
 (function () {
   const QQ = window.QQ;
@@ -59,6 +60,10 @@
         text: '點左上角的「墨染櫻雪」，隨時回到青丘地圖。',
       });
     }
+    list.push({
+      target: '.player__pill', mascot: 'nuomi_love', title: '邊逛邊聽',
+      text: '左下角可以播昭昭做的曲子〈霜痕〉和〈溯雪〉。換頁也會接著播，不用回到音樂頁。',
+    });
     const banner = document.querySelector('.progress-banner');
     list.push(shown(banner)
       ? {
@@ -145,7 +150,14 @@
       if (el) {
         const header = document.querySelector('.site-header');
         const r = el.getBoundingClientRect();
-        if (el.closest('.site-header')) {
+        // 固定在畫面上的東西（例如左下角的播放器）不用捲
+        let fixed = false;
+        for (let n = el; n && n !== document.body; n = n.parentElement) {
+          if (getComputedStyle(n).position === 'fixed') { fixed = true; break; }
+        }
+        if (fixed) {
+          // 不捲動
+        } else if (el.closest('.site-header')) {
           // 頁首裡的東西：手機上頁首不會固定，捲出畫面了就捲回最上面
           if (r.top < 0 || r.bottom > window.innerHeight) window.scrollTo({ top: 0, behavior: 'instant' });
         } else {
