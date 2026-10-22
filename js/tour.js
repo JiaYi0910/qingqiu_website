@@ -42,7 +42,7 @@
     }
     list.push({
       target: '.site-nav', mascot: 'nuomi_eat', title: '想看更多',
-      text: '「角色」看大家的介紹；「故事」裡有章節、時間軸和名句；「世界」有信物和青丘小百科；「畫廊」有番外和周邊設計。',
+      text: '「角色」看大家的介紹；「故事」裡有章節、時間軸和名句；「世界」有信物和青丘小百科；「畫廊」有番外、音樂和周邊設計。',
     });
     list.push({
       target: '.search-btn', mascot: 'nuomi_what', title: '找東西',

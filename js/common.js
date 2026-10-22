@@ -54,7 +54,7 @@
     site: '© 2026 昭昭⋆.˚✮《墨染櫻雪》青丘地圖・版權所有',
     // 每一組固定自己一行；組裡一句一句分開，螢幕窄的時候只在句子之間換行，不會把詞拆開
     long: [
-      ['本網站的內容、版面設計與程式，', '以及《墨染櫻雪》的小說文字、', '角色、插畫、地圖、表情貼與周邊設計，'],
+      ['本網站的內容、版面設計與程式，', '以及《墨染櫻雪》的小說文字、', '角色、插畫、地圖、表情貼、音樂與周邊設計，'],
       ['著作權皆屬作者昭昭⋆.˚✮所有。', '未經同意，請勿轉載、複製、修改或商業使用。'],
     ],
   };
@@ -489,6 +489,7 @@
     { id: 'items', group: 'world', label: '信物', icon: 'gift', href: 'items.html' },
     { id: 'lore', group: 'world', label: '小百科', icon: 'books', href: 'lore.html' },
     { id: 'au', group: 'art', label: '番外・現代校園', icon: 'study', href: 'au.html' },
+    { id: 'music', group: 'art', label: '音樂', icon: 'wind_chime', href: 'music.html' },
     { id: 'merch', group: 'art', label: '周邊設計', icon: 'hearts', href: 'merch.html' },
   ];
 
