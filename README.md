@@ -115,7 +115,7 @@ qingqiu_website/
 **著作權**：每一頁的頁尾、看大圖的視窗、`<head>` 裡的 `author` / `copyright` 都標了「© 2026 昭昭⋆.˚✮《墨染櫻雪》」，網站本身（內容、版面設計、程式）也包含在內，文字在 `js/common.js` 的 `QQ.copyright`；完整的聲明在 `LICENSE`。
 插畫、地圖、周邊、分享卡片和首頁橫幅的右下角都有浮水印（頭像和小圖示太小，不加）；浮水印的字和樣子在 `tools/to_webp.py` 的 `mark()`。
 
-**外部連結**（Discord、KadoKado、Instagram）：在 `js/common.js` 的 `QQ.links`。首頁地圖上方的按鈕和每一頁的頁尾都會一起改。
+**外部連結**（Discord、KadoKado、Instagram、噗浪）：在 `js/common.js` 的 `QQ.links`。首頁地圖上方的按鈕和每一頁的頁尾都會一起改。
 
 ## 地圖生成指令
 

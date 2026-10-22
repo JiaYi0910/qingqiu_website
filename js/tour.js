@@ -52,7 +52,7 @@
     if (home) {
       list.push({
         target: '#links', mascot: 'nuomi_thanks', title: '讀小說、來聊天',
-        text: '想讀《墨染櫻雪》，就去 KadoKado；想跟大家聊天，來 Discord 找我們；也可以到 Instagram 追蹤作者昭昭！',
+        text: '想讀《墨染櫻雪》，就去 KadoKado；想跟大家聊天，來 Discord 找我們；也可以到 Instagram 和噗浪找作者昭昭！',
       });
     } else {
       list.push({

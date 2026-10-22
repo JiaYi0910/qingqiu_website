@@ -457,6 +457,7 @@
     { label: '加入 Discord', icon: 'nuomi_hi', href: 'https://discord.gg/Cu5AFdTFCa' },
     { label: '在 KadoKado 讀《墨染櫻雪》', icon: 'book_open', href: 'https://www.kadokado.com.tw/book/92097?utm_source=kado_creator&utm_medium=book_link' },
     { label: '昭昭的 Instagram', icon: 'zhaozhao_hi', href: 'https://www.instagram.com/1e.0910_/' },
+    { label: '昭昭的噗浪', icon: 'chat_bubble', href: 'https://www.plurk.com/zhao_0910' },
   ];
 
   function linksHtml(cls) {
