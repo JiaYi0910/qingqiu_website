@@ -148,7 +148,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'shusheng', 'gaodian-daniang'],
   },
   {
-    no: 11, title: '兩隻雪狐狸', vol: 'v2', line: 'now', written: true,
+    no: 11, title: '兩隻雪狐狸', vol: 'v2', line: 'now', written: true, kado: 959058,
     summary: '不下雪的雲野下了一場小雪。糯米堆了兩隻雪狐狸：九條尾巴的是師父，五條尾巴的是自己。',
     places: [
       { id: 'yunye', what: '雲野是不下雪的，那天卻下了一場薄薄的雪。' },
@@ -158,7 +158,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'abo'],
   },
   {
-    no: 12, title: '師兄下山', vol: 'v2', line: 'past', written: true,
+    no: 12, title: '師兄下山', vol: 'v2', line: 'past', written: true, kado: 959069,
     summary: '三年過了，昭昭沒有回去。墨凌下山到柳渡鎮找她。「你從來只會替我決定！」「我喜歡他。」',
     places: [
       { id: 'liuduzhen', spot: '石橋與河邊柳樹', what: '墨凌站在石橋另一頭的柳樹下；吵完以後，霜從他腳下沿著河岸蔓延，四月的柳樹一夜全白。' },
