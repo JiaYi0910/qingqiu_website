@@ -85,6 +85,9 @@ qingqiu_website/
 （這個檔案是在 GitHub 網頁上建立的，因為電腦上的 GitHub 登入沒有權限改排程檔；要改排程時，也請在 GitHub 網頁上改）：
 用 `tools/update_kado.mjs` 去 KadoKado 抓已經上架的章節，把編號寫進 `js/data/chapters.js` 的 `kado:`，有新章節就自己提交。
 章節頁會多一顆「去 KadoKado 讀這一章」，首頁的「KadoKado 上架到第幾章」也會跟著更新。想馬上更新，到 GitHub 的 Actions 分頁按「Run workflow」。
+GitHub 的排程常常晚 5 小時左右才跑，所以昭昭的電腦上另外有一個 Windows 工作排程「青丘地圖 KadoKado 章節更新」，每天 14:05、14:40 跑 `tools/auto_kado.ps1`
+（電腦沒開的話，開機後補跑）。它在 `%USERPROFILE%\.qingqiu-kado\qingqiu_website` 這個只給排程用的資料夾裡做事，不會動到桌面上的網站；紀錄在 `%USERPROFILE%\.qingqiu-kado\log.txt`。
+GitHub 的排程留著當備援：電腦那天沒開，晚上還是會補上。
 因為 GitHub 會自己提交，**在電腦上改網站之前，先 `git pull` 把它的提交拿回來**，推上去才不會被擋。
 
 **首頁的「最近更新」**：寫在 `js/data/updates.js`，新的放最上面，首頁顯示最新三筆。這裡每個人都看得到，不要寫劇情。
