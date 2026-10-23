@@ -1,6 +1,7 @@
 // 音樂：昭昭為《墨染櫻雪》做的曲子
 // 每一首：id、title 歌名、kind 純音樂／歌曲、src 聲音檔（放在 music/ 資料夾，.m4a）、
-//         duration 長度（秒）、cover 封面、lyrics 歌詞（純音樂不用寫）
+//         duration 長度（秒）、cover 封面、lyrics 歌詞（純音樂不用寫）、
+//         youtube YouTube 影片網址（有填，歌旁邊就會出現「在 YouTube 聽」）
 // 歌詞：[{ label: '段落名稱', lines: ['一行', '一行'] }]，照原本的歌詞一字不改
 // 加新曲子：把檔案放進 music/，在下面多加一首就好
 
@@ -16,6 +17,7 @@ QQ.music = {
       src: 'music/shuangheng.m4a',
       duration: 177,
       cover: 'images/music/cover.webp',
+      youtube: 'https://www.youtube.com/watch?v=50ohMKpglWw',
     },
     {
       id: 'suxue',
@@ -24,6 +26,7 @@ QQ.music = {
       src: 'music/suxue.m4a',
       duration: 173,
       cover: 'images/music/cover.webp',
+      youtube: 'https://www.youtube.com/watch?v=EgCji05-PB4',
       lyrics: [
         { label: 'Verse 1：初雪坡（清冷與初見）', lines: ['青丘月落雲野風過', '你踏著初雪涉水而來', '那一抹墨色衣袖染了塵埃', '也染了我這一生清寂的等待'] },
         { label: 'Pre-Chorus：拜月台（心意暗生與拉扯）', lines: ['拜月台前你長跪不起', '那一雙眼眸比夜色更深邃', '明知是劫明知是萬劫不復', '我卻只想沉淪在你的眼眸裡'] },

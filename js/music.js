@@ -16,6 +16,7 @@
           <h2>〈${QQ.esc(s.title)}〉</h2>
           <p class="song__meta"><span class="tag">${QQ.esc(s.kind)}</span>${time(s.duration)}</p>
           <audio controls preload="none" src="${QQ.esc(s.src)}">你的瀏覽器不能播放這首曲子。</audio>
+          ${s.youtube ? `<a class="read-btn" href="${QQ.esc(s.youtube)}" target="_blank" rel="noopener">${QQ.icon('wind_chime')}在 YouTube 聽 ↗</a>` : ''}
         </div>
       </div>
       ${lyrics}
