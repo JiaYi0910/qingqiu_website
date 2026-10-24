@@ -168,7 +168,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'moling', 'shusheng', 'laochuangong'],
   },
   {
-    no: 13, title: '第一場雪', vol: 'v2', line: 'past', written: true,
+    no: 13, title: '第一場雪', vol: 'v2', line: 'past', written: true, kado: 959085,
     summary: '第一場雪。墨凌的妖力壓不住，青丘下了一個月的雪。他走下九十九階離開，留下墨玉簪子、封起來的信，和那盞燈。',
     places: [
       { id: 'liuduzhen', what: '老船公第一次來到人間，捎來一句話：「那小子，要走了。」書生把櫻花傘塞給她。' },
@@ -184,7 +184,7 @@ QQ.chapters = [
 
   // ── 卷三〈櫻落〉 ──
   {
-    no: 14, title: '青丘的傳說', vol: 'v3', line: 'now', written: true,
+    no: 14, title: '青丘的傳說', vol: 'v3', line: 'now', written: true, kado: 959097,
     summary: '糯米崇拜「青丘最厲害的狐妖」，半夜偷練幻術想變得跟他一樣黑，結果只黑了耳朵。那天夜裡，昭昭拿出了那根簪子。',
     places: [
       { id: 'xingdengxiang', spot: '茶攤', what: '茶攤的老狐妖說，青丘以前出過一隻最最最厲害的狐妖；糯米頂著黑耳朵去買油豆腐，被整條巷子笑。' },
