@@ -196,7 +196,7 @@ QQ.chapters = [
     characters: ['nuomi', 'zhaozhao', 'doufu-laobanniang', 'tanghulu-yeye'],
   },
   {
-    no: 15, title: '藏起來的尾巴', vol: 'v3', line: 'past', written: true,
+    no: 15, title: '藏起來的尾巴', vol: 'v3', line: 'past', written: true, kado: 959218,
     summary: '昭昭留在柳渡鎮學著當人：藏尾巴、畫皺紋。月圓夜，她鬆開幻術給書生看九條尾巴，說「我喜歡你」。',
     places: [
       { id: 'liuduzhen', what: '在糕點鋪斜對面租了一間河邊小屋；吃辣椒打噴嚏冒尾巴，畫皺紋遮住不會老的臉。' },
@@ -205,7 +205,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'shusheng', 'gaodian-daniang'],
   },
   {
-    no: 16, title: '不一樣的時間', vol: 'v3', line: 'past', written: true,
+    no: 16, title: '不一樣的時間', vol: 'v3', line: 'past', written: true, kado: 959308,
     summary: '書生一年一年老去，她一點都沒變。他們在糕點鋪辦了沒有婚書的婚禮，後來搬到杏花村。',
     places: [
       { id: 'sangxi', what: '書生帶她回桑溪見娘；娘把傳家的銀鐲子套在她手腕上。' },
