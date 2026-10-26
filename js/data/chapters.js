@@ -216,7 +216,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'shusheng', 'shusheng-niang', 'gaodian-daniang'],
   },
   {
-    no: 17, title: '大家的心意', vol: 'v3', line: 'now', written: true,
+    no: 17, title: '大家的心意', vol: 'v3', line: 'now', written: true, kado: 959323,
     summary: '糯米偷偷寫的「仇人名單」，其實是一本感謝名單。昭昭在縫一件米黃色的小衣裳。',
     places: [
       { id: 'zhaozhao-jia', what: '昭昭在廊下縫小衣裳，糯米寫仇人名單；名單第一頁寫著「第一名：師父」。' },
@@ -228,7 +228,7 @@ QQ.chapters = [
     characters: ['nuomi', 'zhaozhao', 'abo', 'taolin-dashen', 'doufu-laobanniang'],
   },
   {
-    no: 18, title: '糯米生病了', vol: 'v3', line: 'both', written: true,
+    no: 18, title: '糯米生病了', vol: 'v3', line: 'both', written: true, kado: 959345,
     summary: '糯米第一次發高燒，昭昭守了一整夜。她想起自己病倒的那年冬天，守在床邊的不是書生，是連夜趕來、天亮前離開的墨凌。',
     places: [
       { id: 'zhaozhao-jia', what: '糯米抓青蛙淋了雨，夜裡發燒；昭昭拿冰涼的墨玉簪子貼她額頭，天亮時她長出第七條尾巴。' },
