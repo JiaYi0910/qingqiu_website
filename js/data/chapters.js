@@ -238,7 +238,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'moling', 'shusheng'],
   },
   {
-    no: 19, title: '身分', vol: 'v3', line: 'past', written: true,
+    no: 19, title: '身分', vol: 'v3', line: 'past', written: true, kado: 959360,
     summary: '昭昭在杏花村用狐火救了孩子，身分曝光。道士的雷符打下來時，她撕開平安符，召出一隻墨色的九尾狐。',
     places: [
       { id: 'xinghuacun', what: '後山的狼撲向孩子，她用狐火救了石頭；道士在祠堂指控她，夜裡帶人來放雷符，她替書生擋雷，受了重傷。' },
@@ -246,7 +246,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'shusheng', 'shitou', 'moling'],
   },
   {
-    no: 20, title: '櫻落', vol: 'v3', line: 'past', written: true,
+    no: 20, title: '櫻落', vol: 'v3', line: 'past', written: true, kado: 959383,
     summary: '兩人終於分開，不是不愛了。昭昭用最後的妖力，變出一場櫻花雨給他看。「不要回頭。」',
     places: [
       { id: 'liehu-xiaowu', what: '住進山裡廢棄的獵戶小屋；月圓夜，她站在溪中的大石頭上，變出一場櫻花雨。' },
