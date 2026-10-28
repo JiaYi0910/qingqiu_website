@@ -258,7 +258,7 @@ QQ.chapters = [
 
   // ── 卷四〈心魔〉 ──
   {
-    no: 21, title: '師父的祕密', vol: 'v4', line: 'now', written: true,
+    no: 21, title: '師父的祕密', vol: 'v4', line: 'now', written: true, kado: 959390,
     summary: '年底大掃除，糯米翻出一把舊紙傘和一根墨色的簪子，第一次吃醋：「師父心裡是不是住著別人！」',
     places: [
       { id: 'zhaozhao-jia', what: '糯米在師父房間的抽屜底翻出傘和木盒，兩人吵起來；夜裡，她長出帶著灰黑色霧氣的第八條尾巴。' },
@@ -267,7 +267,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi'],
   },
   {
-    no: 22, title: '回師門', vol: 'v4', line: 'now', written: true,
+    no: 22, title: '回師門', vol: 'v4', line: 'now', written: true, kado: 959410,
     summary: '為了糯米的心魔，昭昭終於回到初雪坡。小松、老狐師父，還有那條掃了很多年的路。',
     places: [
       { id: 'yunqidu', what: '老船公一眼看出糯米生了心魔；這一次，昭昭說要去初雪坡。' },
