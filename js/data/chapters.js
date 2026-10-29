@@ -278,7 +278,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'laochuangong', 'xiaosong', 'laohu', 'tanghulu-yeye'],
   },
   {
-    no: 23, title: '師父知道的事', vol: 'v4', line: 'both', written: true,
+    no: 23, title: '師父知道的事', vol: 'v4', line: 'both', written: true, kado: 960584,
     summary: '老狐師父說出墨凌為什麼走：不是恨她，是怕她一輩子欠他。糯米躲在迴廊柱子後面，聽到了「墨凌」這個名字。',
     places: [
       { id: 'chuxuepo', spot: '師門庭院', what: '雪夜在石桌邊，師父說墨凌在他門口跪了一整夜，從人間回來後在寒潭邊坐了七天七夜。' },
@@ -288,7 +288,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'laohu', 'nuomi', 'moling'],
   },
   {
-    no: 24, title: '心魔', vol: 'v4', line: 'now', written: true,
+    no: 24, title: '心魔', vol: 'v4', line: 'now', written: true, kado: 960616,
     summary: '糯米在後山寒潭過八尾的心魔。「糯米，別怕，師父在這裡。」就是當年那句「師兄在這裡」。',
     places: [
       { id: 'chuxuepo', spot: '後山寒潭', what: '糯米坐上潭中間的黑石頭，昭昭在潭邊護法，把她叫了回來；傍晚，昭昭發現自己第九條尾巴尖染上了灰黑色的霧。' },
