@@ -296,7 +296,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'laohu', 'xiaosong'],
   },
   {
-    no: 25, title: '昭昭的心魔', vol: 'v4', line: 'both', written: true,
+    no: 25, title: '昭昭的心魔', vol: 'v4', line: 'both', written: true, kado: 960772,
     summary: '九尾也有心魔，這次換糯米護法。昭昭在幻境裡對書生說了謝謝，然後去了桑溪：石頭、兩座墳、最後一把傘。',
     places: [
       { id: 'chuxuepo', spot: '後山寒潭', what: '昭昭坐上黑石頭，糯米在潭邊喊到嗓子啞：「師父，別怕！糯米在這裡！」' },
@@ -307,7 +307,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'laohu', 'xiaosong', 'laochuangong', 'shitou', 'shusheng'],
   },
   {
-    no: 26, title: '九條尾巴', vol: 'v4', line: 'now', written: true,
+    no: 26, title: '九條尾巴', vol: 'v4', line: 'now', written: true, kado: 961158,
     summary: '桂花夜，糯米長出第九條尾巴，雲野家家戶戶的風鈴一起響。昭昭在信末寫：「山門口那盞燈，這幾天，點亮一點。」',
     places: [
       { id: 'yunye', what: '沒有風的夜裡，家家戶戶的風鈴一起響；不到中午，整個雲野都知道了。' },
