@@ -321,7 +321,7 @@ QQ.chapters = [
 
   // ── 卷五〈化形〉 ──
   {
-    no: 27, title: '雷劫前夜', vol: 'v5', line: 'now', written: true,
+    no: 27, title: '雷劫前夜', vol: 'v5', line: 'now', written: true, kado: 961239,
     summary: '老船公的雲載著雲野的大家去青丘。那晚，昭昭說她有喜歡的人，拆開了一百二十七年沒拆的信，替他掃路到第四十三階，對著北方說：「要。」',
     places: [
       { id: 'chuxuepo', spot: '九十九階', what: '雲野的大家搭雲降在九十九階底下，爬上山門住進師門。' },
@@ -332,7 +332,7 @@ QQ.chapters = [
     characters: ['zhaozhao', 'nuomi', 'laohu', 'xiaosong', 'laochuangong', 'taolin-dashen', 'doufu-laobanniang', 'tanghulu-yeye', 'xiaoyaoguai'],
   },
   {
-    no: 28, title: '化形', vol: 'v5', line: 'now', written: true,
+    no: 28, title: '化形', vol: 'v5', line: 'now', written: true, kado: 961245,
     summary: '雷劫台上大家都在。最後一道雷落下時，雲裡閃過一縷墨色的光。糯米化成人形，披上繡了桂花的米黃色衣裳。',
     places: [
       { id: 'chuxuepo', spot: '山門與燈', what: '天還沒亮，師門的燈一盞一盞點起來；老狐師父把「雷劫用」的平安符貼在昭昭手腕上。' },
@@ -343,7 +343,7 @@ QQ.chapters = [
     image: { src: 'images/scenes/17-transformation.webp', caption: '化形' },
   },
   {
-    no: 29, title: '第三場雪', vol: 'v5', line: 'now', written: true,
+    no: 29, title: '第三場雪', vol: 'v5', line: 'now', written: true, kado: 961264,
     summary: '第三場雪。墨凌站在雲野的籬笆門外：「我來接妳了。」「……師兄。」「你來得好慢。」糯米：「這個黑漆漆的是誰！」',
     places: [
       { id: 'yunye', what: '雷劫後第九天，九月的雪，桂花還開著，整個雲野都跑出來看。' },
